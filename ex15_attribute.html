@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h3>자바스크립트로 html태그의 특성(속성)조작하기</h3>
+    <form name="form1">
+        <input type="text" name="txt1">
+        <input type="button" value="on" name="btn1">
+    </form>
+
+    <script>
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+
+        btn1.onclick = m1;
+        function m1() {
+            // txt1.size++;
+            // txt1.maxLength = 5;
+            // txt1.readOnly = true;
+            // window.document.body.bgColor = 'gray';
+            // alert(window.document.body.bgColor);
+
+            //토글 버튼 만들기
+            if (window.document.body.bgColor != 'black') {
+                window.document.body.bgColor = 'black';
+                btn1.value = 'on';
+            } else {
+                window.document.body.bgColor = 'white';
+                btn1.value = 'off';
+            }
+        }
+    </script>
+
+</body>
+</html>

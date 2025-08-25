@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        //현재 위치가 전역 공간(Global Area)
+        function m1() {
+            //여기는 함수 영역(local area)
+            console.log('m1함수');
+        }
+        m1();
+
+
+        //매개변수가 있는 함수
+        function m2(name) {
+            console.log('name', name);
+
+            //내장 배열 > 자바스크립트가 스스로 만들어서 관리하는 배열
+
+            //함수 내에 자동으로 생성되는 내장 배열 > arguments
+
+            console.log(arguments.length);
+            console.log(arguments[0]);
+            console.log(arguments[1]);
+            console.log(arguments[2]);
+            console.log('===========');
+
+        }
+        m2('강아지');
+        m2('고양이');
+        m2();
+        m2('병아리', '송아지', '망아지');
+
+        
+
+        function m3() {
+            return 100;
+        }
+
+        var result = m3();
+        console.log('result', result);
+
+        console.clear();
+
+
+        console.log(undefined == null); //true
+
+        var temp;
+        console.log(temp); //undefined
+
+        temp = null;
+        console.log(temp); //null
+
+        // temp = undefined; //하지마
+        // console.log(temp);
+        console.clear();
+        console.log(undefined == null);     //true
+        console.log(undefined === null);    //false
+
+        console.log(10 == 10);     //true
+        console.log(10 === 10);    //true
+
+        console.log(10 == '10');     //true
+        console.log(10 === '10');    //false
+
+        console.log(typeof undefined);  //undefined
+        console.log(typeof null);       //object(X) -> 자바스크립트 버그...
+
+    </script>
+</body>
+</html>

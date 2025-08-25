@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        //현재 시각
+        var now = new Date(); //new 생성자함수();
+        console.log(now);
+        console.log(now.toString());
+        console.log(typeof now);
+
+
+        //요소 추출
+        //- c.get(Calendar.상수)
+        // console.log(now.getYear());
+        console.log(now.getFullYear());
+        console.log(now.getMonth());    //month(0부터시작)
+        console.log(now.getDate());
+        console.log(now.getHours());
+        console.log(now.getMinutes());
+        console.log(now.getSeconds());
+        console.log(now.getSeconds());
+        console.log(now.getMilliseconds());
+        console.log(now.getTime());     //tick(epoch time)
+        console.log(now.getDay());      //요일(일요일(0)~토요일(6))
+
+        console.log(now.toString());
+        console.log(now.toLocaleString());
+
+        console.log(now.toDateString());
+        console.log(now.toTimeString());
+
+        console.log(now.toLocaleDateString());
+        console.log(now.toLocaleTimeString());
+
+        var christmas = new Date();
+        christmas.setFullYear(2025);
+        christmas.setMonth(11);
+        christmas.setDate(25);
+        console.log(christmas.toLocaleString());
+
+        // Date(year: number, monthIndex: number, date?: number, hours?: number, minutes?: number, seconds?: number, ms?: number): Date
+        var birthday = new Date(2001, 6, 27, 9, 0, 0, 0);
+        console.log(birthday.toString());
+
+        var temp = christmas-now;
+        console.log(temp);
+        console.log(temp/1000/60/60/24);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        var n1 = 3.14;
+        console.log('실수를 정수로 형변환', parseInt(n1));
+
+        var n2 = '200';
+        console.log('문자열을 정수로 형변환', parseInt(n2));
+
+        var n3 = '홍길동';  //string
+        console.log('숫자형태가 아닌 문자열을 정수로 형변환', parseInt(n3)); //NaN
+
+        var n4 = '100점'; //string
+        console.log('100점이라는 문자열을 형변환',parseInt(n4));
+        n4 = '100점이 아니라 90점...';
+        console.log('숫자로시작하는문자열', parseInt(n4));
+        n4 = '점수90점...';
+        console.log('숫자로시작하지않는문자열' , parseInt(n4));
+
+        // css 조작
+        var width = '200px';
+        console.log(parseInt(width)+100); //300
+
+        var fontSize = '1.5rem';
+        console.log(parseFloat(fontSize)); //1.5
+
+        // boolean isNan(value)
+        // - is not a number?
+        // - value가 숫자가 아닙니까?
+        console.log(isNaN(10));         //false
+        console.log(isNaN('홍길동'));   //true
+        console.log(isNaN('10'));       //false
+        console.log(isNaN('10점'));     //true
+    </script>
+</body>
+</html>

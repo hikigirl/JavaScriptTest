@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text] {
+            border: 1px solid #767676;
+            border-radius: 3px;
+            padding: 3px 7px;
+            width: 400px;
+        }
+    </style>
+    <script>
+        // 태그 위치를 바꿨더니 작동안함...
+        // Uncaught TypeError: Cannot set properties of undefined (setting 'value')
+        // window.document.all.txt1.value = new Date();
+
+    </script>
+</head>
+<body>
+    <h3>자바스크립트 구문의 실행 순서</h3>
+    <input type="text" name="txt1">
+    <script>
+        window.document.all.txt1.value = new Date();
+        // 단일 라인 주석
+        /* 
+            다중라인 주석(alt+shift+A)
+        */
+
+    </script>
+    
+</body>
+</html>
