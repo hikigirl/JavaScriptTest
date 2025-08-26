@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form input {
+            display: block;
+            padding: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1">
+        <h2 id="title">Controls</h2>
+        <div>
+            <input type="text" name="txt1" id="txt1" class="txts">
+            <input type="text" name="txt2" id="txt2" class="txts">
+            <input type="text" name="txt3" id="txt3" class="txts">
+            <input type="button" value="버튼" name="btn1">
+        </div>
+    </form>
+
+    <script>
+    /*
+        1. BOM, Browser Object Model
+        2. DOM, Document Object Model
+        
+        여태 한 자바스크립트 작업의 과정..
+        1. 태그 검색
+        2. 이벤트 등록
+        3. 이벤트 함수 구현
+        4. 실행
+    */
+        // <input type="text" name="txt1" id="txt1" class="txts">
+        
+        //BOM
+        window.document.form1.txt1.value = 'BOM';
+        //DOM(id)
+        document.getElementById('txt1').value = 'DOM';
+        //BOM or DOM -> 검색 방식의 차이일 뿐 찾은 객체는 완벽히 동일하다.
+
+        //DOM(Class)
+        var txts = document.getElementsByClassName('txts');
+        console.log(txts);
+        for (var i=0; i<txts.length; i++){
+            txts[i].value = i;
+        }
+        //DOM(name) -> 잘 사용하지 않음
+        txt1 = document.getElementsByName('txt1')[0];
+        txt1.value = 'DOM(name)';
+
+        //DOM(tag) -> 잘 사용하지 않음
+        var input = document.getElementsByTagName('input');
+        // console.log(input);
+        for (var i=0; i<input.length; i++){
+            input[i].value = i;
+        }
+
+        //CSS 선택자
+        document.querySelector('#txt1').value = 'CSS';
+        document.querySelector('.txts:nth-child(2)').value = 'CSS2';
+        document.querySelectorAll('.txts:nth-child(odd)').value = 'CSS3';
+        for (var i=0; i<document.querySelectorAll('.txts:nth-child(odd)').length; i++){
+            document.querySelectorAll('.txts:nth-child(odd)')[i].value = 'CSS4'
+        }
+    </script>
+
+</body>
+</html>

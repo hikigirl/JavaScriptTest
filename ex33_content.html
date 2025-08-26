@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>콘텐츠조작</h1>
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <hr>
+    <div id="div1">홍길동</div>
+
+    <script>
+        var div1 = document.getElementById('div1');
+        document.getElementById('btn1').onclick = function () {
+            // alert(div1.innerText);
+            // div1.innerText = '아<u>무</u>개';
+            // alert(div1.innerHTML);
+            // div1.innerHTML = '아<u>무</u>개';
+            // alert(div1.textContent);
+            // div1.textContent = '아<u>무</u>개';
+
+            div1.innerHTML += '<img src="images/catty01.png">';
+        };
+        document.getElementById('btn2').onclick = function() {
+            div1.innerHTML = '';
+        }
+    </script>
+
+</body>
+</html>
