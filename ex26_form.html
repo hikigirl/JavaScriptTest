@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1 {
+            border: 1px solid #999;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+        }
+        #tbl1 th, #tbl1 td {
+            border: 1px solid #999;
+            padding: 5px 10px;
+        }
+        #tbl1 th {
+            background-color: #EEE;
+        }
+        #tbl1 td * {
+            outline: none;
+            width: 150px;
+            height: 15px;
+            margin-bottom: 3px;
+        }
+    </style>
+</head>
+<body>
+    <h3>유효성검사</h3>
+    <form name="form1" action="ex26_ok.jsp" method="post">
+    <table id="tbl1">
+        <tr>
+            <th>이름</th>
+            <td><input type="text" name="txtName"></td>
+        </tr>
+        <tr>
+            <th>나이</th>
+            <td><input type="number" min="0" max="120" name="txtAge"></td>
+        </tr>
+        <tr>
+            <th>아이디</th>
+            <td><input type="text" name="txtID"></td>
+        </tr>
+        <tr>
+            <th>암호</th>
+            <td><input type="text" name="txtPwd"></td>
+        </tr>
+        <tr>
+            <th>암호확인</th>
+            <td><input type="text" name="txtPwdc"></td>
+        </tr>
+    </table>
+
+    <div>
+        <input type="submit" value="가입하기(submit)" name="btnRegister">
+        <input type="button" value="가입하기(button)" name="btnRegister2">
+    </div>
+
+    </form>
+
+
+    <script>
+        var form1           = document.form1;
+        var txtName         = form1.txtName;
+        var txtAge          = form1.txtAge;
+        var txtID           = form1.txtID;
+        var txtPwd          = form1.txtPwd;
+        var txtPwdc         = form1.txtPwdc;
+        var btnRegister     = form1.btnRegister;
+        var btnRegister2    = form1.btnRegister2;
+
+        btnRegister.onclick = m1;
+        btnRegister2.onclick = m2;
+
+        function m1() {
+            //submit 버튼
+            alert();
+            return false; //전송되지 않음(자신의 원래 행동이 취소됨)
+        }
+
+        function m2() {
+            //button 버튼
+            alert();
+        }
+        
+
+    </script>
+
+</body>
+</html>
