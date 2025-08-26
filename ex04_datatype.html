@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <!-- 자료형 -->
+    <script>
+        var num;    //변수 선언
+        num = 10;   //10   -> number(정수형) 리터럴
+        num = 3.14  //3.14 -> number(실수형) 리터럴
+        // alert(num);
+        console.log(num);
+        // console.log('숫자: ' + num);
+        // console.log('숫자:', num);
+        // %d(%i)(정수), %f(실수), %s(문자열), %o(객체)
+        console.log('숫자: %f', num);
+
+        var name;
+        name = '홍길동';
+        name = "아무개";    //문자열 리터럴, 쌍따옴표 홑따옴표 둘다가능
+
+        console.log(name)
+
+        var flag;
+        flag = true;
+        console.log(flag);
+
+        // console.clear();
+
+        console.log(typeof 100);
+        console.log(typeof '문자열');
+        console.log(typeof true);
+        console.log('-------------');
+        console.log(typeof num);
+        console.log(typeof name);
+        console.log(typeof flag);
+        console.log('-------------');
+        console.log(typeof n1);     //undefined(변수를 초기화x)
+        n1=100;
+        console.log(typeof n1);
+
+        //실시간으로 타입이 변한다.(고정이 안되어있음)
+        n1='아무개';
+        console.log(typeof n1);
+
+        console.log(typeof new Date()); //type: object
+
+        var n2 = 10;
+        var n3, n4, n5;
+        var n6 = 10, n7 = 10;
+
+        //연산자, 제어문: 자바와 동일해서 일단은 패스
+
+        console.log(10, typeof 10);         //number
+        console.log('10', typeof '10');     //string
+
+        console.log('10' + 2, typeof ('10' + 2)); 
+        console.log(2 + '10', typeof (2 + '10')); 
+        console.log('10' * 2, typeof ('10' * 2));
+
+        // 문자 이스케이프: 자바와 동일
+        // console.log('C:\code\client');
+        console.log('C:\\code\\client');
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>이미지</h1>
+    <input type="button" value="버튼" name="btn1">
+    <hr>
+    <img src="images/cat01.jpg" name="cat1">
+    <hr>
+    <img src="images/cat01.jpg" name="cat2">
+    <hr>
+    <img src="images/switch_on.png" name="sw1">
+    <hr>
+    <img src="images/rect_icon01.png" name="icon1">
+    <hr>
+    <img src="images/wall01.jpg" name="wallpaper1">
+    <hr>
+    <img src="images/0.png" name="number1">
+
+
+    <script>
+        // window.document.all.btn1
+        document.all['btn1'].onclick = m1;
+
+        function m1() {
+            // document.images[0]
+            // document.images.cat1 //불안정한 방식이라 비추천
+            // document.images['cat1']
+            // console.log(document.images['cat1'])
+            
+            // document.images['cat1'].width = 500;
+            document.images['cat1'].src = 'images/cat02.jpg';
+        }
+
+        //롤오버 이미지
+        document.images['cat2'].onmouseover = m2;
+        document.images['cat2'].onmouseout = m3;
+        function m2() {
+            document.images['cat2'].src = 'images/cat02.jpg';
+        }
+        function m3() {
+            document.images['cat2'].src = 'images/cat01.jpg';
+        }
+        
+        document.images['sw1'].onclick = m4;
+        function m4(){
+            if (document.images['sw1'].src.endsWith('switch_on.png')) {
+                document.images['sw1'].src = 'images/switch_off.png';
+                document.body.bgColor = 'black';
+            } else {
+                document.images['sw1'].src = 'images/switch_on.png'
+                document.body.bgColor = 'white';
+            }
+        }
+
+        var n = 1;
+        document.images['icon1'].onclick = m5;
+        function m5() {
+            // alert();
+            n++;
+            if (n>18) {
+                // return;
+                n=1; //loop
+            }
+            document.images['icon1'].src =
+                'images/rect_icon' + ((n+'').padStart(2, '0') + '.png');
+        }
+
+        n = 1;
+        window.onkeydown = m6;
+        function m6(event) {
+            if(event.keyCode == 37) {
+                n--;
+                if(n<1) {
+                    n=35; //loop
+                }
+            } else if(event.keyCode == 39) {
+                n++;
+                if(n>35) {
+                    n=1; //loop
+                }
+            }
+            document.images['wallpaper1'].src = 'images/wall'+ (n+'').padStart(2, '0') +'.jpg'
+        }
+
+
+        window.onkeydown = m7;
+
+        function m7(event) {
+            // alert(event.keyCode);
+            // alert(event.key);
+            if (event.key>=0 && event.key<=9) {
+                document.images['number1'].src = 'images/' + event.key + '.png'
+            }
+        }
+
+
+    </script>
+</body>
+</html>

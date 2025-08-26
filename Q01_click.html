@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input[type=text] {
+            outline: none;
+        }
+
+        form {
+            margin: 20px auto;
+        }
+
+        form > div {
+            margin-bottom: 15px;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>데이터 입력</h1>
+    <form name="form1">
+        <div>
+            이름: <input type="text" name="txt1">
+        </div>
+        <div>
+            나이: <input type="text" name="txt2">
+        </div>
+        <div>
+            별명: <input type="text" name="txt3">
+        </div>
+
+        <input type="button" value="Long" name="btnlong">
+        <input type="button" value="Short" name="btnshort">
+
+    </form>
+    
+    
+
+    <!-------------------------------------------->
+    <script>
+        // console.log(document.forms[0].elements);
+        
+        document.form1.btnlong.onclick = m2;
+        document.form1.btnshort.onclick = m2;
+
+        function m2(event) {
+            if (event.target.name =='btnlong') {
+                for (var i=0; i<3; i++) {
+                    document.forms[0].elements[i].size=50;
+                }
+            } else if (event.target.name =='btnshort') {
+                for (var i=0; i<3; i++) {
+                    document.forms[0].elements[i].size=20;
+                }
+            }
+        }
+
+
+
+        function m1(event) {
+            if (event.target.name =='btnlong') {
+                console.log('btnlong');
+                
+                // document.form1.txt1.size = 50;
+                // document.form1.txt2.size = 50;
+                // document.form1.txt3.size = 50;
+                for (var i=0; i<3; i++) {
+                    // console.log(document.forms[0].elements[i].name);
+                    document.forms[0].elements[i].size=50;
+                }
+
+            } else if (event.target.name =='btnshort') {
+                console.log('btnshort');
+                
+                // document.form1.txt1.size = 20;
+                // document.form1.txt2.size = 20;
+                // document.form1.txt3.size = 20;
+                for (var i=0; i<3; i++) {
+                    // console.log(document.forms[0].elements[i].name);
+                    document.forms[0].elements[i].size=20;
+                }
+
+            }
+            // console.log(event.target);
+            // alert('btn');
+        }
+        
+        
+
+    </script>
+</body>
+</html>

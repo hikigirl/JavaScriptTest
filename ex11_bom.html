@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>browser object model</h1>
+    <ul>
+        <li>자바스크립트로 html을 조작하기 위한 API</li>
+        <li>모델(체계)</li>
+    </ul>
+    <hr>
+    <form name="form1">
+        <input type="text" name="txt1">
+    </form>
+    <form name="form2">
+        <input type="text" name="txt2">
+    </form>
+    <script>
+        // window.close();
+        window.document.form1.txt1.value = '텍스트박스';
+        window.document.form2.txt2.value = '텍스트박스2';
+
+    </script>
+
+</body>
+</html>

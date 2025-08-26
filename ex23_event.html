@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .item {
+            border: 1px solid #CCC;
+            background-color: #EEE;
+            padding: 10px; width: 300px; text-align: center;
+            margin:15px;
+        }
+        .item > input {
+            border: 1px solid #CCC;
+            background-color: #FFF;
+            width: 90px; height: 50px;
+            margin: 3px;
+            outline: none;
+        }
+        .item > input:hover {
+            box-shadow: 0 0 3px gray;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>집합 이벤트</h1>
+    <!--
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed">
+        <input type="button" value="노랑" name="btnYellow">
+        <input type="button" value="파랑" name="btnBlue">
+    </div>
+    -->
+
+    <!-- 1. 정적 이벤트 -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed" onclick="m1();">
+        <input type="button" value="노랑" name="btnYellow" onclick="m2();">
+        <input type="button" value="파랑" name="btnBlue" onclick="m3();">
+    </div>
+
+    <!-- 2. 정적 + 매개변수 -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed2" onclick="m4('tomato');">
+        <input type="button" value="노랑" name="btnYellow2" onclick="m4('gold');">
+        <input type="button" value="파랑" name="btnBlue2" onclick="m4('cornflowerblue');">
+    </div>
+
+    <!-- 3.  -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed3" onclick="m5(this);">
+        <input type="button" value="노랑" name="btnYellow3" onclick="m5(this);">
+        <input type="button" value="파랑" name="btnBlue3" onclick="m5(this);">
+    </div>
+
+    <!-- 4.  -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed4" 
+            onclick="m6(this);" data-color="tomato">
+        <input type="button" value="노랑" name="btnYellow4" 
+            onclick="m6(this);" data-color="gold">
+        <input type="button" value="파랑" name="btnBlue4" 
+            onclick="m6(this);" data-color="cornflowerblue">
+    </div>
+    <!-- 5. 동적 이벤트 -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed5">
+        <input type="button" value="노랑" name="btnYellow5">
+        <input type="button" value="파랑" name="btnBlue5">
+    </div>
+    <!-- 6. -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed6" data-color="tomato">
+        <input type="button" value="노랑" name="btnYellow6" data-color="gold">
+        <input type="button" value="파랑" name="btnBlue6" data-color="cornflowerblue">
+    </div>
+    <!-- 7. -->
+    <div class="item">
+        <input type="button" value="빨강" name="btnRed7" data-color="tomato">
+        <input type="button" value="노랑" name="btnYellow7" data-color="gold">
+        <input type="button" value="파랑" name="btnBlue7" data-color="cornflowerblue">
+    </div>
+
+    <script>
+        // 1. 
+        function m1() {
+            document.body.bgColor = 'tomato';
+        }
+        function m2() {
+            document.body.bgColor = 'gold';
+        }
+        function m3() {
+            document.body.bgColor = 'cornflowerblue';
+        }
+
+        // 2.
+        function m4(color) {
+            document.body.bgColor=color;
+        }
+
+        // 3. 
+        function m5(obj) {
+            //이 함수를 호출한 이벤트 주체(태그) -> 매개변수로 전달한 this
+            // console.log(obj);
+            // alert(obj.name);
+            // alert(obj.value);
+            if (obj.name =='btnRed3') {
+                document.body.bgColor = 'tomato';
+            } else if (obj.name =='btnYellow3') {
+                document.body.bgColor = 'gold';
+            } else if (obj.name =='btnBlue3') {
+                document.body.bgColor = 'cornflowerblue';
+            }
+        }
+
+        // 4. 
+        function m6(obj) {
+            // alert(obj.color);
+            // alert(obj.dataset['color']);
+            document.body.bgColor = obj.dataset['color'];
+        }
+
+        //5. 동적
+        document.all.btnRed5.onclick     = m7;
+        document.all.btnYellow5.onclick  = m8;
+        document.all.btnBlue5.onclick    = m9;
+        function m7() {
+            document.body.bgColor = 'tomato';
+        }
+        function m8() {
+            document.body.bgColor = 'gold';
+        }
+        function m9() {
+            document.body.bgColor = 'cornflowerblue';
+        }
+
+        // 6. 
+        document.all.btnRed6.onclick    = m10;
+        document.all.btnYellow6.onclick = m10;
+        document.all.btnBlue6.onclick   = m10;
+        function m10(event) {
+            // this와 동일
+            // console.log(event.srcElement);  //비표준
+            // console.log(event.target);      //표준
+            document.body.bgColor = event.target.dataset['color'];
+        }
+
+        // 7. 
+        document.all.btnRed7.onmouseover    = m11;
+        document.all.btnYellow7.onmouseover = m11;
+        document.all.btnBlue7.onmouseover   = m11;
+
+        document.all.btnRed7.onmouseout     = m11;
+        document.all.btnYellow7.onmouseout  = m11;
+        document.all.btnBlue7.onmouseout    = m11;
+        function m11(event) {
+            // 어떤 버튼? -> event.target
+            // 어떤 이벤트? -> event.type
+            // console.log(event.type);
+
+            if (event.type == 'mouseover') {
+                document.body.bgColor = event.target.dataset['color'];
+            } else if (event.type == 'mouseout') {
+                document.body.bgColor = '#FFF';
+            }
+
+
+        }
+        
+
+    </script>
+</body>
+</html>

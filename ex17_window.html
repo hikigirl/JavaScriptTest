@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>window 객체</h1>
+    <form name="form1">
+        <fieldset>
+            <legend>창 제어하기</legend>
+            <input type="button" value="자식창 띄우기" name="btn1">
+            <input type="button" value="자식창 닫기" name="btn2">
+        </fieldset>
+        <fieldset>
+            <legend>자식창의 자원에 접근하기</legend>
+            <input type="button" value="자식창의 텍스트박스에 접근하기" name="btn3">
+            <hr>
+            <input type="text" name="txt1">
+        </fieldset>
+    </form>
+
+    <script>
+        var btn1 = window.document.form1.btn1;
+        var btn2 = window.document.form1.btn2;
+        var btn3 = window.document.form1.btn3;
+        var txt1 = window.document.form1.txt1;
+
+        var child;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+        btn3.onclick = m3;
+
+        function m1() {
+            // window.open('ex15_attribute.html', 'child', '');
+            // window.open('https://naver.com', 'child', '');
+            child = window.open('ex17_child.html', 'child', 'width=500, height=400');
+            // alert(child);
+            console.log(child);
+        }
+
+        function m2() {
+            // window.close();
+            child.close();
+        }
+
+        function m3() {
+            //자식창의 내용물 접근하기
+            child.document.form1.txt1.value = txt1.value;
+        }
+
+
+    </script>
+</body>
+</html>

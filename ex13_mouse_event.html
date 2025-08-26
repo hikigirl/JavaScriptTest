@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea, input {
+            display: block;
+            margin-bottom: 10px;
+        }
+        textarea {
+            width: 500px;
+            height: 300px;
+            outline: none;
+            resize: none;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <h1>이벤트 <small>(마우스)</small></h1>
+    <form action="" name="form1">
+        <textarea name="txt1" id=""></textarea>
+        <input type="button" value="버튼" name="btn1">
+    </form>
+
+    <script>
+        // 예전부터 사용하던 방식
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+
+        // 마우스 관련 이벤트
+        // txt1.onmouseenter = m1;
+        // txt1.onmouseover = m1;
+        // txt1.onmouseout = m2;
+        // txt1.onmousedown = m3;
+        // txt1.onmouseup = m4;
+        // txt1.onmousemove = m5;
+        // txt1.onmousewheel = m6;
+        txt1.onclick = m7;
+
+        function m1() {
+            // console.log('mouseover');
+            // window.document.body.bgColor = 'gold';
+            // txt1.value = '^0^';
+            message('마우스오버');
+        }
+
+        function m2() {     
+            message('마우스아웃');
+        }
+
+        function m3() {     
+            // message('@_@마우스다운');
+            //마우스의 어떤 버튼을 눌렀는지 알아내기
+            //이벤트 함수 내에서 제공되는 객체 - event
+            // message(event.buttons);
+            // if (event.buttons == 2) {
+            //     alert('우클릭금지!');
+            // }
+            //클릭한 위치의 좌표도 알 수 있음
+            //좌표의 기준점? 문서 좌측 상단(비표준) -> 권장X
+            // message(event.x + ',' + event.y);
+
+            //*** 표준 - clientX, clientY
+            // message(event.clientX + ', ' + event.clientY);
+
+            // screenX, screenY -> 모니터 해상도 기준, 사용하기가 좀 어렵..
+            // message(event.screenX + ', ' + event.screenY);
+
+            //*** offsetX, offsetY -> 이벤트 발생한 태그의 좌측상단(자기 자신의 좌측상단)
+            // message(event.offsetX + ', ' + event.offsetY);
+
+        }
+
+        function m4() {     
+            message('마우스업');
+        }
+
+        function m5() {     
+            // message('마우스가움직여요..');
+            message(event.offsetX + ', ' + event.offsetY);
+        }
+
+        function m6() {     
+            message('마우스휠 > ' + event.deltaY); //음수면 위로 올라간거, 양수면 내려간거
+        }
+
+        function m7() {
+            message('쿨쿨...');
+        }
+
+        function message(txt) {
+            txt1.value = new Date().toLocaleTimeString() + ' > ' + txt + '\r\n' + txt1.value;
+        }
+
+        //onclick -> 마우스 전용 이벤트가 아니므로, 마우스 정보 처리(좌표, 무슨버튼클릭했는지 등등...) 작업은 ㄴㄴ
+        btn1.onclick = m7;
+
+    </script>
+</body>
+</html>

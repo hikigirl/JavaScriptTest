@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        form {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+        }
+        form > input[type=text] {
+            padding: 3px;
+            margin: 3px 0px;
+            outline: none;
+        }
+        #message {
+            border: none;
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form name="form1">
+        <h1>회원 가입</h1>
+        아이디:
+        <input type="text" name="txt1" id="userid">
+        <input type="text" name="txt2" id="message">
+        <!-- <input type="text" name="txt2" id="message" readonly> -->
+    </form>
+
+    <script>
+        document.form1.txt1.onkeyup = m1;
+        function m1(){
+            // alert();
+            // console.log(document.form1.txt1.value.length);
+            if(document.form1.txt1.value.length<4) {
+                document.form1.txt2.value = '아이디가 너무 짧습니다.';
+            } else if (document.form1.txt1.value.length>12){
+                document.form1.txt2.value = '아이디가 너무 깁니다.';
+            } else {
+                document.form1.txt2.value = '아이디가 적합합니다.';
+            }
+        }
+
+    </script>
+
+</body>
+</html>

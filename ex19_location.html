@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>location 객체</h1>
+
+    <form name="form1">
+        <input type="text" name="txt1">
+        <hr>
+        <input type="button" value="버튼1" name="btn1">
+    </form>
+
+    <script>
+
+        var txt1 = window.document.form1.txt1;
+        var btn1 = window.document.form1.btn1;
+        btn1.onclick = m1;
+        function m1() {
+            console.log(window.location);
+            console.log(window.location.href);
+            // window.location.href = 'ex17_window.html';
+            // window.location.href = 'https://naver.com';
+            // window.location.href = txt1.value;
+            // window.location.reload(); //새로고침
+            window.location.assign('https://naver.com');
+        }
+
+        //전역이벤트
+        //특정 태그가 아닌 언제 어디서나 발생하는 이벤트
+        // -> window 객체에 이벤트 추가
+        window.onkeydown = m2;
+        function m2(event) {
+            // alert(event.keyCode);
+            // F(70) Q(81) C(67)
+            if (event.keyCode == 70) {
+                window.location.href = 'https://naver.com';
+            } else if (event.keyCode == 81) {
+                window.location.href = 'https://google.com';
+            } else if (event.keyCode == 67) {
+                window.location.href = 'https://coupang.com';
+            }
+        }
+
+    </script>
+
+</body>
+</html>
