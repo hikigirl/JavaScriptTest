@@ -23,9 +23,22 @@
             alert('메시지');
         }
         function m2() {
-            confirm('메시지');
+            var result = confirm('메시지');
+            if (result) {
+                document.body.bgColor = 'gold';
+            } else {
+                document.body.bgColor = 'white';
+            }
         }
-        function m3() {}
+        function m3() {
+            //prompt('메시지', '기본값');
+            var value = prompt('나이를 입력하세요.', '');
+            if (parseInt(value) >=15) {
+                alert('통과');
+            } else {
+                alert('거절');
+            }
+        }
     </script>
 </body>
 </html>
