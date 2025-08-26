@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+            border: 1px solid gray;
+            border-radius: 5px;
+            width: 200px;
+            margin-bottom: 15px;
+            padding: 10px 15px 15px 15px;
+        }
+        fieldset > input[type=text] {
+            display: block;
+            margin-bottom: 10px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <h1>타이머</h1>
+    <form name="form1">
+        <fieldset>
+            <legend>setTimeout/setInterval</legend>
+            <input type="text" name="txt1">
+            <input type="button" value="시작" name="btn1">
+            <input type="button" value="멈춤" name="btn2">
+        </fieldset>
+    </form>
+    <hr>
+    <img src="images/catty08.png" alt="catty08" name="cat1">
+    <hr>
+
+    <script>
+        var txt1 = document.form1.txt1;
+        var btn1 = document.form1.btn1;
+        var btn2 = document.form1.btn2;
+
+        btn1.onclick = m1;
+        btn2.onclick = m2;
+
+
+        /*
+            타이머
+            - 비동기 방식 업무 구현
+            1. id setTimeout(할일, 시간) -> 일회성 타이머
+            2. clearTimeout(id)
+            3. id setInterval(할일, 시간) -> 반복 타이머
+            4. clearInterval(id)
+        */
+
+        var n = 1;
+        var timer = 0;
+        var timerList = [];
+        
+        function m1() {
+            // setTimeout(f1, 3000);
+            // setInterval(f1, 3000);
+            // setInterval(f1, 1000);
+            // if (timer == 0) {
+            //     timer = setInterval(f1, 100);
+            //     console.log(timer);
+            // }
+            timer = setInterval(f1, 100);
+            timerList.push(timer);
+            console.log(timerList);
+        }
+
+        function f1() { //f1: 콜백 함수(개발자가 아닌 시스템이나 환경이 호출하는 함수)
+            // txt1.value = new Date().toLocaleTimeString();
+            txt1.value = n;
+            n++;
+        }
+
+
+        function m2() {
+            // clearInterval(timer);
+            // timer = 0;
+
+            // timer = timerList.pop();
+            // clearInterval(timer);
+
+            while (timerList.length > 0) {
+                timer = timerList.pop();
+                clearInterval(timer);
+                // console.log(timerList);
+            }
+            
+            console.log(timerList);
+        }
+
+
+        document.images['cat1'].onclick = m3;
+        function m3() {
+            if (timer == 0) {
+                timer = setInterval(f3, 50);
+            } else {
+                clearInterval(timer);
+                timer=0;
+            }
+            
+        }
+        function f3() {
+            n++;
+            if(n>9) n=1;
+            // document.images['cat1'].width++;
+            document.images['cat1'].src = 'images/catty0'+n+'.png';
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>고양이</h1>
+    <!-- img[src=images/catty0$.png]*5 -->
+    <!-- img[src=images/catty0$.png name=cat$ alt=catty$$]*5 -->
+    <img src="images/catty01.png" alt="catty01" name="cat1">
+    <img src="images/catty02.png" alt="catty02" name="cat2">
+    <img src="images/catty03.png" alt="catty03" name="cat3">
+    <img src="images/catty04.png" alt="catty04" name="cat4">
+    <img src="images/catty05.png" alt="catty05" name="cat5">
+    
+    <script>
+        // console.log(document.images);
+        // console.log(document.images.length);
+        
+        document.images['cat1'].onmouseover = m1;
+        document.images['cat2'].onmouseover = m2;
+        document.images['cat3'].onmouseover = m3;
+        document.images['cat4'].onmouseover = m4;
+        document.images['cat5'].onmouseover = m5;
+
+        
+
+        document.images['cat1'].onclick = m6;
+        document.images['cat2'].onclick = m7;
+        document.images['cat3'].onclick = m8;
+        document.images['cat4'].onclick = m9;
+        document.images['cat5'].onclick = m10;
+
+        document.onkeydown = m11;
+        
+
+
+        function m1() { document.images['cat1'].width += 5; }
+        function m2() { document.images['cat2'].width += 5; }
+        function m3() { document.images['cat3'].width += 5; }
+        function m4() { document.images['cat4'].width += 5; }
+        function m5() { document.images['cat5'].width += 5; }
+
+        function m6()   { document.images['cat1'].width = 128; }
+        function m7()   { document.images['cat2'].width = 128; }
+        function m8()   { document.images['cat3'].width = 128; }
+        function m9()   { document.images['cat4'].width = 128; }
+        function m10()  { document.images['cat5'].width = 128; }
+
+        function m11(event) {
+            console.log(event.key);
+            // var index = event.key-1;
+            // console.log(index);
+            if (event.key==1) {
+                document.images['cat1'].width += 5;
+            } else if (event.key==2) {
+                document.images['cat2'].width += 5;
+            } else if (event.key==3) {
+                document.images['cat3'].width += 5;
+            } else if (event.key==4) {
+                document.images['cat4'].width += 5;
+            } else if (event.key==5) {
+                document.images['cat5'].width += 5;
+            } else if (event.key=='Escape') {
+                for (var i=0; i<document.images.length; i++){
+                    document.images[i].width = 128;
+                }
+            }
+        }
+
+    </script>
+
+</body>
+</html>
