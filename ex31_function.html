@@ -11,11 +11,80 @@
 <body>
     <input type="button" value="버튼1" name="btn1">
     <input type="button" value="버튼2" name="btn2">
+    <script src="ex31.js"></script>
     <script>
         /*
             JavaScript Function
             - 자바스크립트의 함수는 1급 객체이다.
+            - 함수를 객체처럼 취급한다. -> 값으로 사용할 수 있다.
+            1. 함수를 변수나 데이터 구조에 담을 수 있다.
+            2. 함수를 매개변수로 전달할 수 있다.
+            3. 함수를 반환값으로 사용할 수 있다.
+
+            JavaScript에서 함수를 선언하는 방법
+            1. 함수 선언문
+            2. 함수 표현식(리터럴)
         */
+
+        // 1. 함수 선언문
+        // function m1() {
+        //     alert('m1');
+        // }
+        // m1();
+
+        // 2. 함수 표현식(리터럴)
+
+        //자신의 고유 영역을 만들 때 사용하는 기법(타인과의 충돌 방지)
+        // (function () {
+        //     alert('익명 함수');
+        // })(); //즉시 호출(재사용 불가능)
+
+
+        var f1 = function () {
+            alert('익명 함수2');
+        };
+
+        // f1();
+        console.log(typeof f1); //function
+
+        document.all.btn1.onclick = m2;
+        function m2() {
+            console.log('함수는 1급객체이다');
+        }
+
+        //함수를 변수나 데이터 구조에 담을 수 있다.
+        document.all.btn2.onclick = function() {
+            alert('함수 표현식을 사용해보자')
+        };
+
+        //함수를 매개변수로 전달할 수 있다.
+        // setTimeout(m3, 1000);
+        // function m3() {  }
+        // setTimeout( function () {}, 1000);
+        
+        function f3() { alert('f3');}
+        function f4() { alert('f4');}
+        function f5(aaa) { aaa(); }
+        //f5(f3);
+        f5(f4);
+
+        //함수를 반환값으로 사용할 수 있다.
+        function f6() {
+            alert('f6');
+        }
+        function f7() {
+            return f6;
+        }
+        var f8 = f7();
+        f8();
+        f7()();
+
+        var a2 = 20; //전역변수
+        (function () {
+            var a1 = 10; //지역변수(함수)
+        })();
+
+
     </script>
 </body>
 </html>
