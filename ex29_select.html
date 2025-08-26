@@ -10,7 +10,8 @@
 </head>
 <body>
     <h2>select box</h2>
-    <select name="sel1" id="">
+    <!-- <select name="sel1" id=""> -->
+    <select name="sel1" multiple size="5">
         <option value="f1">사과</option>
         <option value="f2">귤</option>
         <option value="f3">바나나</option>
@@ -23,6 +24,13 @@
     <input type="button" value="버튼3" name="btn3">
     <input type="button" value="버튼4" name="btn4">
     <input type="button" value="버튼5" name="btn5">
+
+    <hr>
+    태어난 년도:
+    <select name="selYear">
+
+
+    </select>
 
     <script>
         document.all.btn1.onclick = m1;
@@ -65,10 +73,42 @@
         }
         function m4() {
             //동적으로 옵션 태그 삭제 -> index shift 발생하므로 주의
-            sel1.options.remove(2);
+            sel1.options.remove(sel1.selectedIndex);
         }
-        function m5() {}
+        function m5() {
+            //선택?
+            // alert(sel1.value); //다중 선택에서는 사용하기 어려움
+
+            var result = '';
+
+            for (var i=0; i<sel1.options.length; i++) {
+                // alert(sel1.options[i].selected);
+                if (sel1.options[i].selected) {
+                    result += sel1.options[i].text + ', ';
+                }
+            }
+            // alert(result);
+
+            // sel1.value = 'f1';
+            // sel1.value = 'f3';
+            // sel1.value = 'f5';
+            sel1.options[0].selected = true;
+            sel1.options[2].selected = true;
+            sel1.options[4].selected = true;
+        }
+
+        // <option value="1990">1990년</option>
+        for (var i=1950; i<=2025; i++) {
+            var op = new Option();
+            op.text = i + '년';
+            op.value = i;
+            // var op = new Option(i + '년', i);
+            document.all.selYear.options.add(op);
+        }
+        document.all.selYear.value='1995';
+
 
     </script>
+    
 </body>
 </html>
