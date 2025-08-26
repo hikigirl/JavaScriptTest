@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h3>체크박스</h3>
+    <form name="form1">
+        <input type="checkbox" name="cb1">
+        <input type="button" value="버튼" name="btn1">
+    </form>
+    <hr>
+    <h2>회원가입</h2>
+    <p>가입 약관</p>
+    <label><input type="checkbox" name="cbAgree">약관에 동의합니다.</label>
+    <input type="button" value="다음 단계로" name="btnNext" disabled>
+
+    <hr>
+    <h2>장바구니</h2>
+    <table border width="500">
+        <tr>
+            <th><input type="checkbox" name="cbAll"></th>
+            <th>상품명</th>
+            <th>수량</th>
+            <th>가격</th>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+         <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="cbitem"></td>
+            <td>마우스</td>
+            <td>1</td>
+            <td>20,000원</td>
+        </tr>
+    </table>
+    
+    
+    <script>
+        document.form1.btn1.onclick = m1;
+        function m1() {
+            // document.form1.cb1.checked = true;
+
+            //토글버튼
+            document.form1.cb1.checked = !document.form1.cb1.checked;
+        }
+        
+        // document.all.cbAgree.onclick
+
+        //onchange: 체크를 할 때, 해지할때 모두 이벤트가 발생
+        document.all.cbAgree.onchange = m2;
+        function m2 () {
+            // alert('체크');
+            if (document.all.cbAgree.checked) {
+                document.all.btnNext.disabled = false;
+            } else {
+                document.all.btnNext.disabled = true;
+            }
+        }
+
+        document.all.cbAll.onchange = m3;
+        function m3(event) {
+            // document.all.cbAll //절대적인 표현
+
+            //상대적인 표현. 이렇게쓰는걸 권장
+            // if (event.target.checked) {
+            //     // 일괄 선택
+            //     // console.log(document.all.cbitem);
+            //     for (var i=0; i<document.all.cbitem.length; i++) {
+            //         document.all.cbitem[i].checked = true;
+            //     }
+            // } else {
+            //     // 일괄 해제
+            //     for (var i=0; i<document.all.cbitem.length; i++) {
+            //         document.all.cbitem[i].checked = false;
+            //     }
+            // }
+
+            for (var i=0; i<document.all.cbitem.length; i++) {
+                document.all.cbitem[i].checked = event.target.checked;
+            }
+        }
+
+
+    </script>
+</body>
+</html>

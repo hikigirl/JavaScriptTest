@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h3>라디오버튼</h3>
+    <label><input type="radio" name="rb" value="white" checked>흰색</label>
+    <label><input type="radio" name="rb" value="black">검정색</label>
+    <label><input type="radio" name="rb" value="red">빨간색</label>
+    <label><input type="radio" name="rb" value="yellow">노란색</label>
+    <label><input type="radio" name="rb" value="blue">파란색</label>
+
+    <script>
+        // for (var i=0; i<document.all.cbitem.length; i++) {
+        //         document.all.cbitem[i].checked = event.target.checked;
+        // }
+        for (var i=0; document.all.rb.length; i++) {
+            document.all.rb[i].onchange = m1;
+        }
+        function m1() {
+            // 어떤 라디오버튼을 클릭했는가? -> event.target으로 확인
+            // alert(event.target.value);
+            document.body.bgColor = event.target.value;
+
+            if (event.target.value =='black' || event.target.value =='blue' || event.target.value =='red') {
+                document.body.text = 'white';
+            } else {
+                document.body.text = 'black';
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

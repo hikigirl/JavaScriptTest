@@ -31,15 +31,15 @@
     <table id="tbl1">
         <tr>
             <th>이름</th>
-            <td><input type="text" name="txtName"></td>
+            <td><input type="text" name="txtName" value="홍길동"></td>
         </tr>
         <tr>
             <th>나이</th>
-            <td><input type="number" min="0" max="120" name="txtAge"></td>
+            <td><input type="number" min="0" max="120" name="txtAge" value="20"></td>
         </tr>
         <tr>
             <th>아이디</th>
-            <td><input type="text" name="txtID"></td>
+            <td><input type="text" name="txtID" value="hong"></td>
         </tr>
         <tr>
             <th>암호</th>
@@ -76,11 +76,147 @@
             //submit 버튼
             //alert();
             //return false; //전송되지 않음(자신의 원래 행동이 취소됨)
+
+            //이름: 필수, 길이(2~5자), 한글만
+            if (txtName.value.trim()=='') {
+                alert('이름 필수');
+                txtName.focus();
+                return false;
+            }
+
+            if (txtName.value.length < 2 || txtName.value.length > 5) {
+                alert('2~5자 이내');
+                //txtName.value = '';
+                txtName.focus();
+                txtName.select();
+                return false;
+            }
+
+            for (var i=0; i<txtName.value.length; i++) {
+                var c = txtName.value.charAt(i);
+                if (c <'가' || c > '힣') {
+                    alert('이름은 한글로 작성');
+                    txtName.select();
+                    return false;
+                }
+            }
+            //나이 : 필수값+숫자만+범위(0~120)
+            if (txtAge.value.trim()=='') {
+                alert('나이 필수');
+                txtAge.focus();
+                return false;
+            }
+
+            //아이디: 정규표현식
+            //필수값, 길이(4~12자), 영어+숫자+_ , 숫자로 시작X
+            // var regex = /^[A-Za-Z_][A-Za-z0-9_]{3,11}$/;
+            // if (!regex.test(txtID.value.trim())) {
+            //     alert('올바르지 않은 아이디');
+            //     txtID.select;
+            //     return false;
+            // }
+
+            var regex = /^[A-Za-z_][A-Za-z0-9_]{3,11}$/;
+
+            if (!regex.test(txtID.value.trim())) {
+                alert('올바르지 않은 아이디');
+                txtID.select();
+                return false;
+            }
+
+            //암호
+            // 필수값, 길이 4~12글자
+            if (txtPwd.value.trim() == '') {
+                alert('암호 필수');
+                txtPwd.focus();
+                return false;
+            }
+
+            if (txtPwd.value.trim().length < 4 || txtPwd.value.trim().length > 12) {
+                alert('암호 4~12자 이내');
+                txtPwd.value = '';
+                txtPwd.focus();
+                return false;
+            }
+
+            if (txtPwd.value != txtPwdc.value) {
+                alert('암호 불일치');
+                txtPwd.value = '';
+                txtPwdc.value = '';
+                txtPwd.focus();
+                return false;
+            }
+
+
+
+            //return false가 실행되지 않으면 아무것도 안함 --> submit
         }
 
         function m2() {
             //button 버튼
-            alert();
+            // alert();
+
+            if (txtName.value.trim()=='') {
+                alert('이름 필수');
+                txtName.focus();
+                return false;
+            }
+            if (txtName.value.length < 2 || txtName.value.length > 5) {
+                alert('2~5자 이내');
+                //txtName.value = '';
+                txtName.focus();
+                txtName.select();
+                return false;
+            }
+            for (var i=0; i<txtName.value.length; i++) {
+                var c = txtName.value.charAt(i);
+                if (c <'가' || c > '힣') {
+                    alert('이름은 한글로 작성');
+                    txtName.select();
+                    return false;
+                }
+            }
+            //나이 : 필수값+숫자만+범위(0~120)
+            if (txtAge.value.trim()=='') {
+                alert('나이 필수');
+                txtAge.focus();
+                return false;
+            }
+
+            var regex = /^[A-Za-z_][A-Za-z0-9_]{3,11}$/;
+
+            if (!regex.test(txtID.value.trim())) {
+                alert('올바르지 않은 아이디');
+                txtID.select();
+                return false;
+            }
+
+            //암호
+            // 필수값, 길이 4~12글자
+            if (txtPwd.value.trim() == '') {
+                alert('암호 필수');
+                txtPwd.focus();
+                return false;
+            }
+
+            if (txtPwd.value.trim().length < 4 || txtPwd.value.trim().length > 12) {
+                alert('암호 4~12자 이내');
+                txtPwd.value = '';
+                txtPwd.focus();
+                return false;
+            }
+
+            if (txtPwd.value != txtPwdc.value) {
+                alert('암호 불일치');
+                txtPwd.value = '';
+                txtPwdc.value = '';
+                txtPwd.focus();
+                return false;
+            }
+
+            //다 통과했으면?? 전송 해야함
+            form1.submit();
+            
         }
         
 
