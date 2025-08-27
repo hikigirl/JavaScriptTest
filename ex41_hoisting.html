@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+    /*
+        Hoisting, 호이스팅
+        1. 변수 호이스팅
+        2. 함수 호이스팅(***)
+    */
+        function f1() {
+            alert('f1');
+        }
+        // f1();
+
+        //f2(); //실행순서가 평소와 반대??
+
+        function f2() {
+            alert('f2');
+        }
+
+
+        //함수 호이스팅을 막는 작업
+        // f3(); //f3 is not a function
+        // var f3 = function () {
+        //     alert('f3');
+        // }
+
+        f4(); //ReferenceError: Cannot access 'f4' before initialization
+        let f4 = function () {
+            alert('f4');
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        /* 자바라면...
+        class User {
+            public String name;
+            public int age;
+            public String address;
+        }
+        User hong = new User();
+        hong.name = "홍길동";
+        hong.age = 20;
+        hong.address = "서울시";
+        */
+
+        const hong = new Object();
+        console.log(hong); //{} 빈 객체
+
+        hong.name = '홍길동';
+        hong.age = 20;
+        hong.address = '서울시';
+        console.log(hong);
+
+        // delete hong.address; //프로퍼티 삭제
+        // console.log(hong);
+
+        // document.tel = '010-1234-5678';
+        // console.log(document.tel);
+
+        // hong.tel = '010-1234-5678';
+        hong['tel'] = '010-1234-5678';
+        console.log(hong.tel);
+
+        console.clear();
+
+        /*
+            동물 2마리
+            - 이름, 나이, 색상
+        */
+
+        const dog = new Object();
+        dog.name = '멍멍이';
+        dog.age = 3;
+        dog.color = '갈색';
+
+        const cat = new Object();
+        cat.name = '냐옹이';
+        cat.age = 2;
+        cat.colour = '고등어'; //이름이 달라..
+
+        //위 문제점의 해결책
+        //1. 생성자 함수 -> 처음부터 있었음
+        //2. class       -> ES6
+
+
+        // 자바스크립트 객체 만들기
+        // 1. 빈 객체를 만든다.
+        // 2. 원하는 프로퍼티를 추가한다.
+        
+        const lee = new Object();
+        lee.name = '이순신';
+        lee.age = 30;
+        lee.address = '서울시';
+
+        const park = {}; // 빈객체
+        park.name = '박명수';
+        park.age = 25;
+        park.address = '부산시';
+
+        const gang = {
+            name: '강감찬',
+            age: 22,
+            address: '인천시'
+        };
+        
+        console.log(lee);
+        console.dir(park); //json 출력
+        console.table(gang);
+    </script>
+</body>
+</html>
