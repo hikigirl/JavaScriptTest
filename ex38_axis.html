@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            border: 1px solid black;
+            padding: 10px;
+            margin: 10px;
+        }
+        #me {
+            border: 10px solid dodgerblue;
+        }
+        .check {
+            outline: 10px solid orange;
+        }
+    </style>
+</head>
+<body>
+    <h1>Axis</h1>
+
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div>
+        할아버지
+        <div>
+            큰아버지
+            <div>사촌</div>
+        </div>
+        <div>
+            아버지
+            <div>
+                큰형
+                <div>조카</div>
+            </div>
+            <div>작은형</div>
+            <div id="me">
+                <!-- 중심 -->
+                나
+                <div>자식</div>
+                <div>
+                    자식
+                    <div>손자</div>
+                </div>
+                <div>자식</div>
+            </div>
+            <div>
+                동생
+                <div>조카</div>
+            </div>
+            <div>막내동생</div>
+        </div>
+        <div>
+            작은아버지
+            <div>사촌</div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('btn1').onclick = m4;
+        function m4() {
+            // me.parentElement.firstElementChild.className = 'check';
+            // 형제
+            // me.previousSibling
+            // me.nextSibling
+            // 
+            // 태그만 찾음
+            // me.previousElementSibling
+            // me.nextElementSibling
+
+            // me.previousElementSibling.className = 'check';
+            // me.nextElementSibling.className = 'check';
+        }
+
+        function m3() {
+            //부모
+            // - me.parentNode
+            // - me.parentElement
+
+            // me.parentNode.className = 'check';
+            // me.parentElement.className = 'check';
+
+            // me.parentNode.parentNode.className = 'check';
+            // me.parentNode.parentNode.parentNode.className = 'check';
+            // me.parentNode.parentNode.parentNode.parentNode.className = 'check'; //HTML 태그
+            // alert(me.parentNode.parentNode.parentNode.parentNode.nodeName);
+
+            // console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode); //document 객체
+            // console.log(me.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode); //null, DOM의 최상위는 document이므로 null이 나옴
+        }
+
+        function m2() {
+            // alert(me.childNodes.length); //9
+            // alert(me.children.length);   //3
+            
+            // for (var i=0; i<me.children.length; i++) {
+            //     me.children[i].className = 'check';
+            // }
+
+            // me.childNodes[0]         -> me.fitstChild
+            // me.childNodes[length-1]  -> me.lastChild
+
+            // me.children[0]           -> me.firstElementChild
+            // me.children[length-1]    -> me.lastElementChild
+
+            // me.firstElementChild.className = 'check'
+            // me.lastElementChild.className = 'check'
+
+            //손자에게 접근
+            me.children[1].firstElementChild.className = 'check'
+        }
+
+        function m1() {
+            var me = document.getElementById('me');
+
+            // me.class = 'check';
+            // me.title = '나';
+            // me.className = 'check';
+
+            //자식 탐색
+            // - me.childNodes
+            // alert(me.childNodes.length); //9
+
+            for (var i=0; i<me.childNodes.length; i++) {
+                // console.log(me.childNodes[i]);
+                /*
+                    DOM 노드 프로퍼티
+                    1. nodeType
+                    2. nodeName
+                    3. nodeValue
+
+                */
+
+                console.log(
+                    me.childNodes[i].nodeType,
+                    me.childNodes[i].nodeName
+                    // me.childNodes[i].nodeValue
+                );
+                // console.log(me.childNodes[i].nodeValue);
+                if (me.childNodes[i].nodeType==1) {
+                    me.childNodes[i].className = 'check';
+                }
+ 
+            }
+
+        }
+    </script>
+
+
+
+</body>
+</html>
