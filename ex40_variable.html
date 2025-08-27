@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+    /*
+        변수 선언하기
+        1. var 
+        - BOM/DOM/ES6
+        - function-scoped
+        - 함수(영역 인식)
+        - 제어문(영역 인식 불가능)
+        - 중복 선언 가능
+
+        2. let
+        - ES6(ECMA 2015)
+        - block-scoped(함수, 제어문 영역으로 인식)
+        - 변수
+
+        3. const
+        - ES6(ECMA 2015)
+        - block-scoped(함수, 제어문 영역으로 인식)
+        - 상수
+
+    */
+        var a = 10;
+        console.log(a);
+        var a = 20;
+        console.log(a);
+
+        let b = 30; 
+        console.log(b);
+
+        //Cannot redeclare block-scoped variable 'b'.javascript
+        // let b = 40;
+        // console.log(b);
+
+        function m1() {
+            var d = 60; //지역 변수(m1)
+            let e = 70; //지역 변수(m1)
+        }
+        // console.log(d); //ReferenceError: d is not defined
+        // console.log(e); //ReferenceError: e is not defined
+
+        if(true) {
+            var f = 80; //전역 변수
+            let g = 90; // 지역 변수(if)
+        }
+        console.log(f);
+        // console.log(g); //ReferenceError: g is not defined
+
+
+        for(var i=0; i<10; i++) {
+
+        }
+        console.log(i);
+
+        for(let j=0; j<10; j++) {
+
+        }
+        // console.log(j); //ReferenceError: j is not defined
+
+
+        const k = 100; //const는 상수형 변수. 생성과 동시에 초기화해야함
+
+        // k=200; //Assignment to constant variable.
+
+        // const l; //'const' declarations must be initialized.
+        // l = 200;
+
+    </script>
+
+</body>
+</html>
