@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body { margin: 50px; }
+        #tbl1 {
+            border: 1px solid gray;
+            border-collapse: collapse;
+            width: 630px;
+        }
+        #tbl1 td {
+            border: 1px solid gray;
+            width: 126px;
+            height: 126px;
+        }
+        #tbl1 td img {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- table#tbl1>tr*5>td*5 -->
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    
+    <script>
+        // <td> 태그 + onmousedown
+        // - document.getElementsByTagName('td') (태그 선택자, 권장하지 않음)
+        var list = document.querySelectorAll('#tbl1 td');
+        // console.log(list);
+        for (var i=0; i<list.length; i++) {
+            // list[i].textContent = '클릭';
+            list[i].onmousedown = function(event) {
+                //어떤 td가 이 함수를 호출했는지?
+
+                //Error: Cannot set properties of undefined
+                //자바의 nullpointerexception과 비슷...
+                //함수 바깥의 루프변수 i(전역)때문에 발생한 에러
+                // 함수 내부의 i와 67번라인의 i의 값이 다름...
+                // list[i].textContent = '클릭';
+
+                // event.target.textContent = '클릭';
+                // event.target.bgColor = 'cornflowerblue';
+                if (event.buttons == 1) {
+                    event.target.innerHTML = '<img src="images/rect_icon01.png" alt="">';
+                } else if (event.buttons == 2) {
+                    event.target.innerHTML = '<img src="images/rect_icon02.png" alt="">';
+                }
+            };
+        }
+
+
+        //context menu(우클릭했을때 뜨는 메뉴) 비활성화하기
+        //테이블 안쪽에서 우클릭했을 때 안뜨게 하기
+        document.getElementById('tbl1').oncontextmenu = function () {
+            //메뉴가 뜨기 직전 발생
+            return false;
+        };
+
+    </script>
+</body>
+</html>

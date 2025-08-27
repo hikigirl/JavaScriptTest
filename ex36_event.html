@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>DOM event</h1>
+    <input type="button" value="버튼(BOM)" id="btn1">
+    <input type="button" value="버튼(DOM)" id="btn2">
+    <input type="button" value="버튼(이벤트삭제)" id="btn3">
+    <script>
+        var btn1 = document.getElementById('btn1');
+        var btn2 = document.getElementById('btn2');
+
+        //BOM Event
+        // event handler 사용
+
+        btn1.onclick = m1;
+        btn1.onclick = m2;
+        btn1.onclick = m3;
+        function m1() { alert('m1'); }
+        function m2() { alert('m2'); }
+        function m3() { 
+            alert('m3 함수입니다.');
+            m1();
+            m2(); 
+        }
+
+        // DOM Event
+        // - obj.addEventListener(이벤트종류, 함수);
+        // btn2.addEventListener('click', function () {
+        //     alert('DOM - eventListener');
+        // });
+
+        btn2.addEventListener('click', m4);
+        btn2.addEventListener('click', m5);
+        function m4() { alert('m4'); }
+        function m5() { alert('m5'); }
+
+        document.getElementById('btn3').onclick = function() {
+            //bom 이벤트 제거
+            btn1.onclick = null;
+
+            //dom 이벤트 제거
+            btn2.removeEventListener('click', m4);
+        };
+    </script>
+</body>
+</html>
