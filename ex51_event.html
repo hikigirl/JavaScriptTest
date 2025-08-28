@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #tbl1 { 
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        #tbl1 td {
+            border: 1px solid black;
+            width: 126px;
+            height: 126px;
+            font-size: 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>테이블</h2>
+    <!-- table#tbl1>tr*3>td*3 -->
+    <table id="tbl1">
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+    <hr>
+    <form action="ex52.jsp">
+        <input type="submit" value="전송하기" id="btn1">
+    </form>
+    <hr>
+    <input type="text" id="txt1">
+
+    <script>
+        //td를 클릭하면 이미지가 들어가도록
+        document.querySelectorAll('#tbl1 td').forEach( td => {
+            td.onmousedown = function() {
+                let filename = '';
+                if (event.buttons == 1) {
+                    filename = 'images/rect_icon01.png';
+                } else if (event.buttons == 2) {
+                    filename = 'images/rect_icon02.png';
+                } else if (event.buttons == 4) {
+                    //태그 삭제
+                    // - 부모태그.removeChild(자식태그)
+                    // console.log(event.target);
+                    //console.log(event.currentTarget);
+                    event.currentTarget.removeChild(event.target);
+                    return;
+                }
+
+                const img = document.createElement('img');
+                img.setAttribute('src', filename);
+                event.target.appendChild(img);
+            };
+            
+        });
+
+        //1. 오른쪽 버튼 클릭
+        //2. oncontextmenu 발생 -> return false -> 3번으로 진행 불가
+        //3. 메뉴 출력
+        // window.oncontextmenu = () => false; //비표준
+        window.oncontextmenu = event => event.preventDefault();
+
+
+        document.getElementById('btn1').onclick = () => {
+            document.getElementById('txt1').value = '전송';
+
+            event.preventDefault();
+            
+        };
+
+        document.getElementById('txt1').onkeydown = () => {
+            if (!isNaN(event.key)) {
+                event.preventDefault();
+            }
+        };
+
+    </script>
+</body>
+</html>
