@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="button" value="버튼" id="btn1">
+
+    <script>
+    /*
+        화살표 함수, Arrow Function
+    */
+
+        // 1. 함수 선언문
+        function f1() {
+            console.log('f1');
+        }
+        f1();
+
+        // 2. 익명 함수
+        const f2 = function() {
+            console.log('f2');
+        };
+        f2();
+
+        // 3. 익명함수 -> 즉시호출
+        (function() {
+            console.log('f3');
+        })();
+
+        // 4. 익명 함수 -> 화살표 함수
+        const f4 = () => {
+            console.log('f4');
+        };
+        f4();
+
+        //구현부 1줄 -> 실행 블럭 생략
+        const f5 = () => console.log('f5');
+        f5();
+        
+        //매개변수
+        const f6 = () => console.log('f6');
+        const f7 = (num) => console.log(num);
+        const f8 = num => console.log(num);
+        const f9 = (num1, num2) => console.log(num1+num2);
+        
+        //return값
+        const f10 = () => {return 100;};
+        const f11 = () => 100;
+        
+        console.clear();
+
+        // 언제 let을 쓰고 const를 쓰는지 ... 신경써보기
+        const btn1 = document.getElementById('btn1');
+
+        // btn1.onclick = function (event) {
+        //     alert(event.target.id);
+        // };
+        // btn1.onclick = event => alert(event.target.id);
+
+        // setTimeout(() => {
+        //    alert();
+        // }, 3000);
+
+        btn1.onclick = function (event) {
+            //이벤트가 발생한 객체?
+            // console.log(`btn1.id: ${btn1.id}`); //비권장
+            // console.log(`event.target: ${event.target.id}`);
+            // console.log(`srcElement: ${event.srcElement.id}`);
+            // console.log(`this: ${this.id}`);
+        };
+        btn1.onclick();
+
+
+        //화살표 함수를 사용하면 그 함수는 무조건 window 종속 함수가 됨
+        //this를 찍어보면 window가 나오므로, event.target 쓰는 것이 안전
+        btn1.onclick = () => {
+            //이벤트가 발생한 객체?
+            console.log(`btn1.id: ${btn1.id}`); //비권장
+            console.log(`event.target: ${event.target.id}`);
+            console.log(`srcElement: ${event.srcElement.id}`);
+            console.log(`this: ${this.id}`); //undefined
+            console.log(this);
+        };
+        
+
+    </script>
+</body>
+</html>

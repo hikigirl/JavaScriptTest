@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        //자바의 스트림과 유사한 기능
+        const list = [
+            '사과',
+            '귤',
+            '바나나',
+            '포도',
+            '딸기',
+            '파인애플',
+            '배',
+            '수박',
+            '복숭아',
+            '망고'
+        ];
+
+        //배열 조작 함수
+        // 1. 탐색
+        console.log('--for문--');
+        for (let i=0; i<list.length; i++) {
+            console.log(list[i]);
+        }
+        console.log('--향상된for문--');
+        for (let item of list) {
+            console.log(item);
+        }
+        console.log('--for each문--');
+        list.forEach(function(item) {
+            console.log(item);
+        });
+
+        console.log('--for each문(화살표함수)--');
+        list.forEach(item => console.log(item));
+        console.log('--for each문+index(화살표함수)--');
+        list.forEach((item, index) => console.log(item, index));
+
+//------------------------------------------------------------------
+        //map() -> 가공+변환
+        console.log(list.map(item => item.length));  
+
+        const names = ['홍길동', '아무개', '하하하'];
+        const olist1 = [];
+
+        for (let i=0; i<names.length; i++) {
+            const o = {
+                name: names[i],
+                age:20,
+                address: '서울시'
+            };
+            olist1.push(o);
+        }
+        console.log('--map(olist1)--')
+        console.log(olist1);
+
+
+        const olist2 = names.map(name => {
+            return {
+                name: name,
+                age: 20,
+                address: '서울시'
+            };
+        });
+        console.log('--map(olist2)--')
+        console.log(olist2);
+
+//------------------------------------------------------------------
+        //filter - 조건에 맞는 모든 요소(집합)
+        console.log('--filter--')
+        console.log(list.filter(item => item.length>=3));
+        //find - 요소 검색(조건에 맞는 첫번째 요소 반환)
+        console.log('--find--')
+        console.log(list.find(item => item.length >= 3));
+    </script>
+</body>
+</html>
