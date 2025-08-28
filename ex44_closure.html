@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+
+
+    <script>
+        function outer() {
+            //지역 변수(outer)
+            let a = 10;
+            console.log('a', a);
+
+            //지역 함수(outer)
+            function inner() {
+                let b = 20;
+                console.log('b', b);
+            }
+            inner();
+        }
+        outer();
+
+        console.clear();
+        let n1 = 100;
+        
+        document.getElementById('btn1').onclick = function() {
+            console.log('n1', n1);
+            let n2 = 200; //지역변수(btn1.onclick)
+            console.log('n2', n2);
+            document.getElementById('btn2').onclick = function() {
+                // alert('msg');
+                let n3 = 300; //지역변수(btn2.onclick)
+
+                console.log('n3', n3);
+                console.log('n2', n2); //죽은변수인데 출력이왜됨.. 커신
+                console.log('n1', n1); //전역변수
+
+                // n2 = 2000; //n2를 여기서 수정해도 의미가없으니 읽기 전용으로만 사용하시오..
+            }
+            alert(n2); //200
+
+        };
+        
+    </script>
+</body>
+</html>

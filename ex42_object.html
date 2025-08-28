@@ -85,6 +85,114 @@
         console.log(lee);
         console.dir(park); //json 출력
         console.table(gang);
+
+
+        const user1 = {
+            name: '홍길동',
+            age: 20,
+            address: '서울시 강남구 역삼동'
+        };
+
+        const address = {
+            si: '서울시',
+            gu: '강남구',
+            dong: '역삼동',
+        };
+
+        const user2 = {
+            name: '홍길동',
+            age: 20,
+            address: address
+        };
+
+        const user3 = {
+            name: '홍길동',
+            age: 20,
+            address: {
+                si: '서울시',
+                gu: '강남구',
+                dong: '역삼동',
+            }, 
+            nick: ['바보', '멍청이']
+        };
+        console.clear();
+        console.log(user3);
+        console.log(user3.name);
+        console.log(user3.address.dong);
+        console.log(user3['address']['dong']);
+        console.log(user3.nick[0]);
+        //고양이 3개 배열
+
+        const catty1 = {
+            name: '고양이1',
+            age: 2
+        };
+        const catty2 = {
+            name: '고양이2',
+            age: 3
+        };
+        const catty3 = {
+            name: '고양이3',
+            age: 4
+        };
+
+        const clist1 = [];
+        clist1[0] = catty1;
+        clist1[1] = catty2;
+        clist1[2] = catty3;
+
+        const clist2 = [];
+        clist2.push(catty1);
+        clist2.push(catty2);
+        clist2.push(catty3);
+
+        const clist3 = [catty1, catty2, catty3];
+
+        const clist4 = [
+            {
+                name: '고양이1', 
+                age: 2
+
+            },
+            {
+                name: '고양이2',
+                age: 3
+            },
+            {
+                name: '고양이3', 
+                age: 4
+            }
+        ];
+    
+        console.clear();
+        //객체 = 데이터+행동
+        const pig = {
+            name: '꿀꿀이',
+            age: 5,
+            eat: function () { 
+                alert(this.name + ': 꿀꿀꿀'); 
+            }
+        };
+
+        pig.sleep = function() {
+            alert('쿨쿨~ '+this.name);
+        };
+
+        function run() {
+            alert(this.name+'는 달린다');
+        };
+        pig.run = run;
+
+        console.log(typeof pig.name);
+        console.log(typeof pig.age);
+        console.log(typeof pig.eat);
+        // pig.eat();
+        // pig.sleep();
+        // pig.run();
+
+        // run();
+
+
     </script>
 </body>
 </html>

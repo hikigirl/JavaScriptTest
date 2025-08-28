@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <script>
+        // window 객체
+        var a = 10; //사실은 전역 변수가 아니라 프로퍼티(=어떤 객체의 멤버)
+        var a = 10; //덮어쓰기
+
+        window.b = 20;
+        
+        function f1() { //전역 -> window 객체의 프로퍼티
+            console.log('f1');
+        }
+
+        // console.log(window);
+        // console.log(window.a);
+        // console.log(window.f1);
+        
+        //let, const 타입 -> window 객체의 멤버가 아님
+        //let, const는 순수한 전역 변수로 사용 가능
+        let d = 30;
+        const e = 40;
+
+        const f3 = function() {
+            console.log('함수를 window 객체에 독립적으로...')
+        };
+
+
+        // console.log(window);
+
+        //제어문 -> 향상된 for문(2가지)
+        const list = ['강아지', '고양이', '병아리'];
+        const dog = {
+            name: '멍멍이',
+            age: 2,
+            color: '갈색'
+        };
+
+        //배열탐색(ES6, 가장최신)
+        console.log('--배열 탐색--');
+        for (const value of list) {
+            console.log(value);
+        }
+        
+
+        //프로퍼티 탐색(ES3)
+        console.log('--프로퍼티 탐색--');
+        for (const value in list) {
+            console.log(value);
+        }
+        for (const value in dog) {
+            console.log(value);
+        }
+
+        console.clear();
+        //배열 > 유사 배열 > 배열을 흉내낸 객체
+        //list = [ '강아지', '고양이', '병아리' ];
+
+        // const list = {
+        //     0: '강아지',
+        //     1: '고양이',
+        //     2: '병아리',
+        //     length: 3
+        // };
+
+        console.log(list[0]);
+        //console.log(list.0);
+        console.log(list['0']);
+
+        list[5] = '송아지';
+
+        console.log(list);
+
+        for (let p in list) {
+            console.log(p); //프로퍼티 탐색
+        }
+
+        list.name = '동물목록';
+        console.log(list);
+    </script>
+</body>
+</html>
