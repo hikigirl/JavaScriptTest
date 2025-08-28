@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {text-align: center;}
+        #div1 {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            margin: 0px auto;
+        }
+
+        .four {
+            color: tomato;
+            font-size: 3rem;
+            text-decoration: underline;
+        }
+
+        .one { font-size: 5rem; }
+        .two { color: dodgerblue; }
+        .three { text-decoration: line-through; }
+        
+
+    </style>
+</head>
+<body>
+    <h2>DOM으로 CSS조작</h2>
+    <input type="button" value="버튼1" id="btn1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+    <input type="button" value="버튼4" id="btn4">
+    <input type="button" value="버튼5" id="btn5">
+    <input type="button" value="버튼6" id="btn6">
+    <input type="button" value="버튼7" id="btn7">
+    <hr>
+    <div id="div1">상자</div>
+    <!-- <div id="div1" style="width: 200px;">상자</div> -->
+    <hr>
+    <div>
+        <button type="button" id="btn8">➕</button>
+        <button type="button" id="btn9">➖</button>
+    </div>
+    <fieldset id="news">
+        <legend>방통위 "불법스팸 통한 다중피해사기 주의"...예방수칙 6가지 안내</legend>
+        <div>
+            전화금융사기나 금융투자사기, 온라인 신용사기 등 불법스팸을 통한 불특정 다수 대상의 피해 사기와 관련해 이용자 주의가 요구된다.
+
+방송통신위원회는 최근 불법스팸을 통해 기관이나 온라인 대출 사칭 유인 등으로 고액의 피해를 야기하는 경우가 있다며 다중피해사기 예방을 위한 이용자들의 주의를 당부한다고 28일 밝혔다.
+
+다중피해사기란 전화금융사기(보이스피싱), 높은 수익률 보장 등 과장·허위 광고로 유인하는 금융투자사기(투자리딩방), 이성적 호감을 가장해 접근한 후 금전적 이득을 취하는 금융사기(로맨스스캠), 대리 구매를 요구하며 비용을 지불하지 않는 예약어김(노쇼) 등 불특정 대상을 상대로 한 사기를 말한다.
+
+불법스팸을 통한 다중피해사기를 예방하기 위해 방통위는 '절대 하지 말아야 하는 세 가지'와 '반드시 해야 하는 세 가지'를 안내했다.
+
+절대 하지 말아야 할 것으로는 △문자에 포함된 인터넷주소 누르지 않기 △누군지 모르는 발신자와 통화하거나 전화하지 않기 △유선상에서 개인정보 주지 않기 등을 강조했다. 반대로 반드시 해야 할 것으로는 △불법스팸 신고하기 △번호 차단하기 △번호 삭제하기를 추천했다.
+
+인터넷주소를 포함하고 있는 의심스러운 문자를 받은 경우에는 카카오톡 '보호나라' 채널을 실행한 후 해당 문자를 복사·붙여넣기 해서 정상 문자인지 여부를 확인할 수도 있다.
+
+또 그간 음성·문자형태의 스팸에만 적용됐던 불법스팸 간편신고 앱을 카카오톡이나 인스타그램 등 SNS(소셜미디어) 스팸에도 적용하도록 개선해 삼성전자나 애플 등 스마트폰 제조사의 구분 없이 앱을 통한 간편신고가 가능해졌다.
+
+불법스팸 신고 방법은 앱 외에도 문자나 음성 등의 휴대전화를 통한 간편 신고와 불법스팸대응센터 홈페이지 신고, 118 상담센터 신고 등 다양한 방법이 마련돼 있다.
+
+신고된 스팸 기록은 분석을 통해 불법스팸 차단과 이동통신사, 휴대전화 제조사 등의 AI(인공지능) 스팸 차단시스템에도 활용되며, 신고가 많을수록 보다 정확하고 신속한 차단이 가능해져 이용자들의 적극적인 신고 참여가 필요한 상황이다.
+
+이와 함께 방통위는 고령자 등 정보취약 계층 등에 대한 피해예방 교육을 위해 직접 방문 및 온라인 강의 등을 진행하고 있으며, 공공기관 사칭이나 문자메시지를 이용한 금융사기(스미싱) 등 다양한 피해사례를 전파하는 등 다중피해사기 방지를 위한 다각적인 노력을 펼칠 예정이다.
+        </div>
+    </fieldset>
+
+    <script>
+        const div1 = document.getElementById('div1');
+        document.getElementById('btn1').onclick = function() {
+        /*
+            <div id="div1">상자</div>
+            <div id="div1" style="color: blue;">상자</div>
+
+        */
+            // alert(div1.style); //[object CSSStyleDeclaration]
+            console.log(div1.style);
+            console.log(div1.style.color);
+            div1.style = 'color: tomato; font-size: 3rem;';
+        };
+        document.getElementById('btn2').onclick = function() {
+            // css의 속성명 -> 자바스크립트 style 프로퍼티의 하위 프로퍼티
+
+            // div1.style.color = 'tomato';
+            // div1.style.fontSize = '3rem';
+            div1.style['color'] = 'tomato';
+            div1.style['font-size'] = '3rem';
+            div1.style['text-decoration'] = 'underline';
+        };
+        document.getElementById('btn3').onclick = function() {
+            div1.className = 'four';
+        };
+        document.getElementById('btn4').onclick = function() {
+            //class 속성 조작
+            // div1.className = 'one';
+            // div1.className = 'two'; //덮어쓰기
+            // div1.className = 'one two'; //중복처리 되긴 되는데 하나의 덩어리임...
+            div1.classList.add('one');
+            div1.classList.add('two');
+            div1.classList.add('three');
+        };
+        document.getElementById('btn5').onclick = function() {
+            //class 제거
+            // div1.className = div1.className.substring(4); //개억지로 가능하긴한데 ㄴㄴ
+            div1.classList.remove('three');
+        };
+        document.getElementById('btn6').onclick = function() {
+            //현재 상자의 너비를 클릭할 때마다 50px씩 누적시키자
+            // div1.style.width += '250px';
+            // div1.style.width = div1.style.width + '250px'
+            // console.log(div1.style.width); //null
+            div1.style.width = '200px';
+            // console.log(div1.style);
+
+            div1.style.width = parseInt(div1.style.width)+50+'px';
+
+        };
+        document.getElementById('btn7').onclick = function() {
+            const list = window.getComputedStyle(div1); //RenderTree를 불러옴(읽기 전용)
+            //console.log(list);
+            // console.log(list.width); //공식 문법은 아님
+            console.log(list.getPropertyValue('width')); //이 방법이 정석이라 추천..
+
+            //태그의 초기CSS값 or 현재 CSS값을 확인하는 용도(읽기 전용)
+            console.log(window.getComputedStyle(document.body).getPropertyValue('margin'));
+
+
+        };
+        
+
+//----------------------------------------------------------------------------------------------
+        const news = document.getElementById('news');
+        let fontSize = 16;
+
+        document.getElementById('btn8').onclick = function() {
+            fontSize += 2;
+            if (fontSize > 40) {
+                fontSize = 40;
+            }
+            // news.firstElementChild -> fieldset > legend
+            // news.lastElementChild -> fieldset > div
+            news.firstElementChild.style['font-size'] = fontSize + 'px';
+            news.lastElementChild.style['font-size'] = fontSize + 'px';
+        };
+
+        document.getElementById('btn9').onclick = function() {
+            fontSize -= 2;
+            // news.firstElementChild -> fieldset > legend
+            // news.lastElementChild -> fieldset > div
+            if (fontSize < 12) {
+                fontSize = 12;
+            }
+
+            news.firstElementChild.style['font-size'] = fontSize + 'px';
+            news.lastElementChild.style['font-size'] = fontSize + 'px';
+        };
+
+    </script>
+
+</body>
+</html>
