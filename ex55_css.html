@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 150px; height: 150px;
+            background-color: darkcyan;
+            position: absolute;
+            /* position: relative; */
+        }
+    </style>
+</head>
+<body>
+    <h3>drag & drop(absolute)</h3>
+    <div id="box1"></div>
+    <p>위의 상자를 클릭해서 이동해보시오.</p>
+    <script>
+        const box1 = document.getElementById('box1');
+        let isDown = false;
+        let offsetX;
+        let offsetY;
+
+        window.onmousedown = event => {
+            //움직일 대상을 클릭할 때에만 반응하도록
+            if (event.target.id == 'box1') {
+                isDown = true;
+                offsetX = event.offsetX;
+                offsetY = event.offsetY;
+            }
+        };
+
+        window.onmousemove = event => {
+            if(isDown) {
+                box1.style['left'] = event.clientX - offsetX + 'px';
+                box1.style['top'] = event.clientY - offsetY + 'px';
+            }
+        };
+
+        window.onmouseup = event => {
+            isDown = false;
+        };
+
+    </script>
+</body>
+</html>

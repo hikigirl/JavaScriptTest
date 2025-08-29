@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 150px; height: 150px; 
+        }
+
+        .draggable {
+            position: relative;
+            left: 0;
+            top: 0;
+        }
+        #box1 { background-color: darkcyan; }
+        #box2 { background-color: darkgreen; }
+        #box3 { background-color: darkmagenta; }
+
+    </style>
+</head>
+<body>
+    <h3 class="draggable">drag & drop(relative)</h3>
+    <div id="box1" class="box draggable"></div>
+    <div id="box2" class="box draggable"></div>
+    <div id="box3" class="box draggable"></div>
+    <p class="draggable">위의 상자를 클릭해서 이동해보시오.</p>
+    <div class="draggable">냐옹</div>
+
+    <img src="images/catty01.png" class="draggable">
+
+    <script>
+        // const box1 = document.getElementById('box1');
+        let obj;
+        let isDown = false;
+        let offsetX;
+        let offsetY;
+        //현재 클릭한 객체의 위치값(화면 좌측 상단 기준)
+        let originX;
+        let originY;
+        
+
+        window.onmousedown = event => {
+            //움직일 대상을 클릭할 때에만 반응하도록
+            if (event.target.classList.contains('draggable')) {
+                isDown = true;
+                offsetX = event.offsetX;
+                offsetY = event.offsetY;
+
+                originX = event.target.getBoundingClientRect().x - parseInt(event.target.style.left != '' ? event.target.style.left : 0);
+                originY = event.target.getBoundingClientRect().y - parseInt(event.target.style.top != '' ? event.target.style.top : 0);
+
+                obj = event.target; //드래그 대상
+
+                //드래그할때 넣는 코드.. 고스트이미지 발생 방지
+                event.preventDefault();
+                return false;
+            }
+        };
+
+        window.onmousemove = event => {
+            if(isDown) {
+                obj.style['left'] = event.clientX - offsetX - originX + 'px';
+                obj.style['top'] = event.clientY - offsetY - originY + 'px';
+            }
+        };
+
+        window.onmouseup = event => {
+            isDown = false;
+        };
+
+    </script>
+</body>
+</html>

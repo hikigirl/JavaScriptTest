@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            /* border: 10px solid dodgerblue; */
+            width: 250px; height: 188px;
+            overflow: hidden;
+            border-radius: 7px;
+        }
+        #list {
+            /* outline: 5px solid tomato; */
+            width: 1250px; 
+            display: flex;
+            /* font-size: 0; */
+            transition: all 1s;
+        }
+        #range1 {
+            width: 290px;
+        }
+    </style>
+</head>
+<body>
+    <h1>고양이</h1>
+    <div id="box">
+        <div id="list">
+            <img src="images/cat01.jpg">
+            <img src="images/cat02.jpg">
+            <img src="images/cat03.jpg">
+            <img src="images/cat04.jpg">
+            <img src="images/cat05.jpg">
+        </div>
+    </div>
+
+    <hr>
+    <select name="" id="sel1">
+        <option value="0">고양이1</option>
+        <option value="1">고양이2</option>
+        <option value="2">고양이3</option>
+        <option value="3">고양이4</option>
+        <option value="4">고양이5</option>
+    </select>
+    <hr>
+    <input type="range" name="" id="range1" min="0" max="4" value="0">
+
+    <script>
+        document.getElementById('sel1').onchange = event => {
+            // alert(event.target.value);
+            // event.target.value*250만큼씩 이동
+            document.getElementById('list').style['transform'] = 
+            `translate(-${event.target.value*250}px, 0px)`;
+        };
+
+        //슬라이드바
+        document.getElementById('range1').oninput = event => {
+            document.getElementById('list').style['transform'] = 
+            `translate(-${event.target.value*250}px, 0px)`;
+        };
+    </script>
+</body>
+</html>
