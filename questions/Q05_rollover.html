@@ -45,14 +45,14 @@
             <input type="button" value="강아지4" id="btn4">
             <input type="button" value="강아지5" id="btn5"> -->
 
-            <a href="images/dog01_big.jpg" id="btn1" target="_blank">강아지1</a>
-            <a href="images/dog02_big.jpg" id="btn2" target="_blank">강아지2</a>
-            <a href="images/dog03_big.jpg" id="btn3" target="_blank">강아지3</a>
-            <a href="images/dog04_big.jpg" id="btn4" target="_blank">강아지4</a>
-            <a href="images/dog05_big.jpg" id="btn5" target="_blank">강아지5</a>
+            <a href="/images/dog01_big.jpg" id="btn1" target="_blank">강아지1</a>
+            <a href="/images/dog02_big.jpg" id="btn2" target="_blank">강아지2</a>
+            <a href="/images/dog03_big.jpg" id="btn3" target="_blank">강아지3</a>
+            <a href="/images/dog04_big.jpg" id="btn4" target="_blank">강아지4</a>
+            <a href="/images/dog05_big.jpg" id="btn5" target="_blank">강아지5</a>
         </div>
         <div class="item">
-            <img src="images/dog01.jpg" alt="dog1" id="img">
+            <img src="/images/dog01.jpg" alt="dog1" id="img">
         </div>
     </div>
 
@@ -69,7 +69,7 @@
             //console.log(btnlist[i].id);
             btnlist[i].onmouseover = function (event) {
                 //console.log(event.target);
-                img.src = 'images/dog0'+getIndex(event.target.id)+'.jpg';
+                img.src = '/images/dog0'+getIndex(event.target.id)+'.jpg';
                 //console.log(img.src);
             };
         }

@@ -18,7 +18,7 @@
     <hr>
     <div id="div1"></div>
     <hr>
-    <img src="images/cat01.jpg" id="cat1">
+    <img src="/images/cat01.jpg" id="cat1">
     <!-- 
     <div id="div1">
         <input type="text" size="10">
@@ -103,12 +103,12 @@
         document.getElementById('btn4').addEventListener('click', function () {
             //고양이 5마리 + 클릭이벤트
             // for (var i=0; i<5; i++) {
-            //     div1.innerHTML += '<img src="images/catty0'+(i+1)+'.png" onclick="f1(event);">';
+            //     div1.innerHTML += '<img src="/images/catty0'+(i+1)+'.png" onclick="f1(event);">';
             // }
 
 
             // for (var i=0; i<5; i++) {
-            //     div1.innerHTML += '<img src="images/catty0'+(i+1)+'.png">';
+            //     div1.innerHTML += '<img src="/images/catty0'+(i+1)+'.png">';
             // }
             // var cats = document.querySelectorAll('#div1 img');
             // for (var i=0; i<cats.length; i++) {
@@ -118,7 +118,7 @@
 
             for (var i=0; i<5; i++) {
                 var img = document.createElement('img');
-                img.setAttribute('src', 'images/catty0'+(i+1)+'.png');
+                img.setAttribute('src', '/images/catty0'+(i+1)+'.png');
                 img.addEventListener('click', f1);
                 div1.appendChild(img);
             }

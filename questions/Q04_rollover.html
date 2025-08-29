@@ -12,28 +12,28 @@
 </head>
 <body>
 
-    <img src="images/cat01.jpg" id="cat01" class="cat" alt="cat01">
-    <img src="images/cat02.jpg" id="cat02" class="cat" alt="cat02">
-    <img src="images/cat03.jpg" id="cat03" class="cat" alt="cat03">
-    <img src="images/cat04.jpg" id="cat04" class="cat" alt="cat04">
-    <img src="images/cat05.jpg" id="cat05" class="cat" alt="cat05">
+    <img src="/images/cat01.jpg" id="cat01" class="cat" alt="cat01">
+    <img src="/images/cat02.jpg" id="cat02" class="cat" alt="cat02">
+    <img src="/images/cat03.jpg" id="cat03" class="cat" alt="cat03">
+    <img src="/images/cat04.jpg" id="cat04" class="cat" alt="cat04">
+    <img src="/images/cat05.jpg" id="cat05" class="cat" alt="cat05">
 
     <script>
         var list = document.querySelectorAll('.cat');
         // console.log(list);
 
         // console.log(getIndex(''));
-        // console.log(('images/cat04.jpg').lastIndexOf('.'));
+        // console.log(('/images/cat04.jpg').lastIndexOf('.'));
 
 
         for (var i=0; i<list.length; i++) {
             list[i].onmouseover = function(event){
       
-                event.target.src = 'images/dog0'+getIndex(event.target.src)+'.jpg';
+                event.target.src = '/images/dog0'+getIndex(event.target.src)+'.jpg';
                 //console.log(event.target.src);
             }
             list[i].onmouseout = function(event){
-                event.target.src = 'images/cat0'+getIndex(event.target.src)+'.jpg';
+                event.target.src = '/images/cat0'+getIndex(event.target.src)+'.jpg';
                 //console.log(event.target.src);
             }
         }

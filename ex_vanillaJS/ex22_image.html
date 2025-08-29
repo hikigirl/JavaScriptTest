@@ -12,17 +12,17 @@
     <h1>이미지</h1>
     <input type="button" value="버튼" name="btn1">
     <hr>
-    <img src="images/cat01.jpg" name="cat1">
+    <img src="/images/cat01.jpg" name="cat1">
     <hr>
-    <img src="images/cat01.jpg" name="cat2">
+    <img src="/images/cat01.jpg" name="cat2">
     <hr>
-    <img src="images/switch_on.png" name="sw1">
+    <img src="/images/switch_on.png" name="sw1">
     <hr>
-    <img src="images/rect_icon01.png" name="icon1">
+    <img src="/images/rect_icon01.png" name="icon1">
     <hr>
-    <img src="images/wall01.jpg" name="wallpaper1">
+    <img src="/images/wall01.jpg" name="wallpaper1">
     <hr>
-    <img src="images/0.png" name="number1">
+    <img src="/images/0.png" name="number1">
 
 
     <script>
@@ -36,26 +36,26 @@
             // console.log(document.images['cat1'])
             
             // document.images['cat1'].width = 500;
-            document.images['cat1'].src = 'images/cat02.jpg';
+            document.images['cat1'].src = '/images/cat02.jpg';
         }
 
         //롤오버 이미지
         document.images['cat2'].onmouseover = m2;
         document.images['cat2'].onmouseout = m3;
         function m2() {
-            document.images['cat2'].src = 'images/cat02.jpg';
+            document.images['cat2'].src = '/images/cat02.jpg';
         }
         function m3() {
-            document.images['cat2'].src = 'images/cat01.jpg';
+            document.images['cat2'].src = '/images/cat01.jpg';
         }
         
         document.images['sw1'].onclick = m4;
         function m4(){
             if (document.images['sw1'].src.endsWith('switch_on.png')) {
-                document.images['sw1'].src = 'images/switch_off.png';
+                document.images['sw1'].src = '/images/switch_off.png';
                 document.body.bgColor = 'black';
             } else {
-                document.images['sw1'].src = 'images/switch_on.png'
+                document.images['sw1'].src = '/images/switch_on.png'
                 document.body.bgColor = 'white';
             }
         }
@@ -70,7 +70,7 @@
                 n=1; //loop
             }
             document.images['icon1'].src =
-                'images/rect_icon' + ((n+'').padStart(2, '0') + '.png');
+                '/images/rect_icon' + ((n+'').padStart(2, '0') + '.png');
         }
 
         n = 1;
@@ -87,7 +87,7 @@
                     n=1; //loop
                 }
             }
-            document.images['wallpaper1'].src = 'images/wall'+ (n+'').padStart(2, '0') +'.jpg'
+            document.images['wallpaper1'].src = '/images/wall'+ (n+'').padStart(2, '0') +'.jpg'
         }
 
 
@@ -97,7 +97,7 @@
             // alert(event.keyCode);
             // alert(event.key);
             if (event.key>=0 && event.key<=9) {
-                document.images['number1'].src = 'images/' + event.key + '.png'
+                document.images['number1'].src = '/images/' + event.key + '.png'
             }
         }
 
