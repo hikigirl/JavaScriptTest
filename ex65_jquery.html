@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .one { color: blue; }
+        .two { background-color: gold; }
+    </style>
+</head>
+<body>
+    <input type="button" value="버튼1" id="btn1">
+    <hr>
+    <div id="box1">상자</div>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $('#btn1').click(() => {
+            // alert($('#box1').css('color'));
+            // $('#box1').css('color', 'blue');
+            // alert($('#box1').width());
+            // $('#box1').width(300);
+
+            //obj.css();
+            //<div>의 글자색?
+            // alert(document.getElementById('box1').style.color); //null
+            // alert(window.getComputedStyle(document.getElementById('box1')).getPropertyValue('color'));
+            // alert($('#box1').css('color')); //읽기
+            // $('#box1').css('color', 'red'); //쓰기
+            // alert($('#box1').css('color')); //읽기
+
+            // $('#box1').css('color', 'blue')
+            //           .css('background-color', 'gray')
+            //           .css('font-size', '3rem');
+
+            //이게 젤 편함... 객체 타입 프로퍼티로 ㄱㄱ
+            // $('#box1').css({
+            //     color: 'blue',
+            //     backgroundColor: 'gray',
+            //     fontSize: '3rem'
+            // });
+
+            //클래스로 css조작
+            $('#box1').addClass('one');
+            $('#box1').addClass('two');
+
+            $('#box1').removeClass('two');
+            // $('#box1').toggleClass('two');
+            console.log($('#box1').hasClass('two')); //contains랑 비슷한듯??
+            
+
+        });
+    </script>
+</body>
+</html>

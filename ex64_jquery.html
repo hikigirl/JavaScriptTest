@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 200px;
+            height: 200px;
+            border: 1px solid black;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="버튼1" id="btn1" class="btns">
+    <input type="button" value="버튼2" id="btn2" class="btns">
+    <input type="button" value="버튼3" id="btn3" class="btns">
+    <input type="button" value="버튼4" id="btn4" class="btns">
+    <input type="button" value="버튼5" id="btn5" class="btns">
+    <input type="button" value="버튼6" id="btn6" class="btns">
+
+    <hr>
+    <div id="box1">상자</div>
+
+
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        // jQuery Effect
+
+        //1. hide, show, toggle
+        //2. fadeOut, fadeIn, fadeToggle
+        //3. slideUp, slideDown, slideToggle
+        //4. animate() - 사용자 정의형
+        $('#btn1').click(() => {
+            // $('#box1').hide('slow');
+            // $('#box1').fadeOut('slow');
+            // $('#box1').slideUp('slow');
+
+            //사용자 정의형
+            // $('#box1').animate({
+            //     width: '400px',
+            //     height: '400px',
+            //     opacity: 0
+            // });
+
+        });
+        $('#btn2').click(() => {
+            // $('#box1').show('fast');
+            // $('#box1').fadeIn('fast');
+            // $('#box1').slideDown('fast');
+        });
+        $('#btn3').click(() => {
+            // $('#box1').toggle(3000);
+            // $('#box1').fadeToggle(3000);
+            // $('#box1').slideToggle(3000);
+        });
+
+        
+        $('#btn4').click(() => {
+            $('#box1').animate({
+                width: '+=50px',
+                height: '+=50'
+            });
+        });
+
+        $('#btn5').click(() => {
+            $('#box1').animate({
+                width: '+=200px'
+            }, 2000, function() {
+                //콜백 함수, 애니메이션이 종료될 때 호출
+                //alert('종료');
+                document.body.bgColor = 'gray';
+            });
+            //document.body.bgColor = 'gray';
+            //이 공간은 animate와 독립된 영역
+        });
+
+
+        $('#btn6').click(() => {
+            //방법1) 콜백지옥..
+            // $('#box1').animate({
+            //     width: '+=200px'
+            // }, 3000, () => {
+            //     $('#box1').animate({
+            //         height: '+=100'
+            //     }, 3000, () => {
+            //         $('#box1').animate({
+            //             'font-size': '+=3rem'
+            //         });
+            //     });
+            // });
+
+
+            //방법2)
+            // $('#box1').animate({
+            //     width: '+=200px' 
+            // }, 2000);
+            // $('#box1').animate({
+            //     height: '+=100' 
+            // }, 2000);
+
+            //방법3)
+            // *** jQuery의 대부분의 함수는 객체를 반환한다.
+            // $('#box1')
+            //     .animate({
+            //         width: '+=20px' 
+            //     }, 500)
+            //     .animate({
+            //         height: '+=10' 
+            //     }, 500);
+            
+            //스트림, 메서드체이닝과 유사...
+            // $('#box1').slideUp()
+            //         .slideDown()
+            //         .fadeOut()
+            //         .fadeIn()
+            //         .animate({width: '+=200'})
+            //         .animate({width: '-=200'});
+
+            
+            //$('#box1').css('color', 'blue');
+            //$('#box1').css('font-size', '3rem');
+
+            // $('#box1').css('color', 'blue')
+            //           .css('font-size', '3rem');
+
+            $('#box1')
+            .mouseover(function() {
+                $('#box1').css('background-color', 'tomato');
+            })
+            .mouseout(function() {
+                $('#box1').css('background-color', 'gold');
+            })
+            
+        });
+        
+    </script>
+</body>
+</html>

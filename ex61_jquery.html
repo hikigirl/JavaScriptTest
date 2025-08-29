@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.7.1.js"></script> -->
+
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>jQuery</h1>
+    <div>자바스크립트 라이브러리(프레임워크)</div>
+    <input type="text" name="txt1" id="txt1">
+
+
+    <script>
+
+        // console.log(typeof jQuery);
+        //태그 검색
+        //1. BOM
+        window.document.all.txt1.value = 'BOM';
+        //2. DOM
+        document.getElementById('txt1').value = 'DOM';
+        //3. jQuery -> 코드가 짧아졌다
+        jQuery('#txt1').val('jQuery');
+        
+        
+    </script>
+</body>
+</html>

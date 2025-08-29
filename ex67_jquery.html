@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="button" value="버튼" id="btn1">
+    <hr>
+    <div id="box1">상자</div>
+    <hr>
+    <input type="text" id="txt1">
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $('#btn1').click(() => {
+            //콘텐츠 조작, 모두 전용 함수
+            //- innerText, textContent  -> text()
+            //- innerHTML               -> html()
+            //- value                   -> val()
+
+            // console.log($('#box1').text()); //읽기
+            // $('#box1').text('<b>안녕</b>하세요.'); //쓰기
+
+            // $('#box1').html('<b>안녕</b>하세요.');
+            // $('#box1').html('<input type="text">');
+            // $('#btn1').val('Button');
+
+            //속성 조작
+            // - obj.attr('prop')        -> 읽기(HTML 속성)
+            // - obj.attr('prop', value) -> 쓰기
+            // - obj.prop('prop')        -> 읽기(JavaScript 속성)
+            // - obj.prop('prop', value) -> 쓰기
+            // $('#txt1').attr({
+            //     size: 10,
+            //     title: '이름을 입력하세요.',
+            //     maxlength: 5
+            // });
+            // $('#txt1').prop('size', 30);
+
+            //태그 동적으로 생성/삭제하기
+            //덮어쓰기 -> html 메서드
+            // $('#box1').html(`<img src="images/catty01.png">`);
+
+            //누적하기 -> append, prepend 메서드
+            // $('#box1').html($('#box1').html()
+            //     +`<img src="images/catty01.png">`);
+
+            // 맨뒤에 누적
+            // $('#box1').append(`<img src="images/catty01.png">`);
+            // 맨앞에 누적
+            // $('#box1').prepend(`);
+
+            //부모.add(자식)
+            //자식.of(부모)
+            // $('#box1').append(`<img src="images/catty01.png">`)
+            //           .css('border', '5px solid blue');
+
+            //동적으로 추가하려는 자식을 먼저 조작한 후 추가할 때에는 이런 방식을 사용함.
+            // $(`<img src="images/catty01.png">`)
+            // .css('border', '5px solid gold')
+            // .mouseover(function() {
+            //     $(event.target).css('border-color', 'tomato');
+            // })
+            // .mouseout(function() {
+            //     $(event.target).css('border-color', 'gold');
+            // })
+            // .appendTo('#box1');
+
+            //태그 삭제 -> 자식태그.remove()
+            $('#box1').remove();
+
+        });
+    </script>
+</body>
+</html>

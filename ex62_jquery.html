@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <h1>jQuery() 함수</h1>
+    <input type="button" value="버튼" id="btn1" name="btn1">
+    <hr>
+    <div id="box1" class="box">상자1</div>
+    <div id="box2" class="box">상자2</div>
+    <div id="box3" class="box">상자3</div>
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        // jQuery() 함수
+        document.getElementById('btn1').addEventListener('click', m4);
+
+        function m4() {
+            const a = document.all.btn1; //BOM
+            const b = document.getElementById('btn1'); //DOM
+            const c = jQuery('#btn1'); //jQuery
+            
+            console.log(a===b); //true
+            console.log(b===c); //false
+            console.log(a); //DOM객체
+            console.log(b); //DOM객체
+            console.log(c); //jQuery객체
+
+            // a.style['color'] = 'blue';
+
+            // c.style['color'] = 'blue'; //jQuery 객체에 이 방식은 불가능
+            // c.css('color', 'red'); //jQuery 함수 사용하여 조작
+            
+            // jQuery(b).css('color', 'red');       //DOM객체    -> 형변환 -> jQuery객체
+            // c[0].style['color'] = 'blue';        //jQuery객체 -> 형변환 -> DOM객체
+
+
+        }
+
+        function m3() {
+            // console.log(jQuery('.box'));
+            // const list = jQuery('.box');
+            // for (let i=0; i<list.length; i++) {
+            //     list[i].style['color'] = 'tomato';
+            // }
+
+            // jQuery('.box').css('color', 'blue'); //헉..
+
+            //태그 선택자
+            // jQuery('div').css('border','1px solid black');
+            // jQuery('*').css('border','1px solid black');
+            // jQuery('#box1').css('border','1px solid black');
+            // jQuery('.box').css('border','1px solid black');
+            jQuery('h1, div:nth-child(odd)').css('border','1px solid black');
+
+        
+        }
+
+        function m2() {
+            document.querySelectorAll('.box').forEach(box => {
+                box.style['color'] = 'gold';
+            });
+
+            //클래스이름으로 검색하면 forEach문 사용 불가능
+            // document.getElementsByClassName('box').forEach(box => {
+            //     box.style['color'] = 'gold';
+            // });
+            // Array.from(document.getElementsByClassName('box')).forEach(box => {
+            //     box.style['color'] = 'blue';
+            // });
+
+            // NodeList, Array -> forEach 사용 가능
+            // console.log(document.querySelectorAll('.box'));
+            // HTMLCollection -> forEach 사용 불가능
+            // console.log(document.getElementsByClassName('box'));
+            // 컬렉션을 순수 배열로 변환 (Array.from 사용)
+            // console.log(Array.from(document.getElementsByClassName('box')));
+        }
+
+
+        function m1() {
+            //상자 3개 -> CSS 조작
+            const list = document.getElementsByClassName('box');
+            for (let i=0; i<list.length; i++) {
+                list[i].style['color'] = 'gold';
+            }
+        }
+
+    </script>
+</body>
+</html>

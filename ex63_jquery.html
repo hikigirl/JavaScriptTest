@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <input type="button" value="버튼1" id="btn1" class="btns">
+    <input type="button" value="버튼2" id="btn2" class="btns">
+    <input type="button" value="버튼3" id="btn3" class="btns">
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        // jQuery('#btn1')
+        // $('#btn1')
+    
+        //전용 함수
+        // $('#btn1').click(() => {
+        //     alert('전용');
+        // });
+        
+        //범용 함수(DOM의 add, removeEvent와 유사함)
+        // $('#btn2').on('click', () => {
+        //     alert('범용');
+        // });
+
+        // $('#btn3').on('click', () => {
+        //     $('#btn1').off('click');
+        //     $('#btn2').off('click'); //전용, 범용 상관없이 이벤트 삭제하는 것이 가능
+        // });
+        
+
+        //버튼 3개 -> 동일한 클릭 이벤트
+        //바닐라 버전..
+        // document.querySelectorAll('.btns').forEach(btn => {
+        //     btn.onclick = event => alert(event.target.value);
+        // });
+
+        //jQuery 버전(루프가 필요없다)
+        $('.btns').click(event => alert(event.target.value));
+
+    </script>
+</body>
+</html>
