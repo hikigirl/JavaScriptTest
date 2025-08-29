@@ -5,14 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        body {
+            margin: 20px;
+        }
+        #box1 {
+            width: 600px;
+            text-align: center;
+            border: 1px solid #DDD;
+            padding: 10px 10px 6px 10px;
+
+        }
+        #txt1 {
+            /* border: 1px solid #DDD; */
+            border: 0;
+            width: 600px;
+            padding: 10px;
+            margin: 5px 0;
+            font-size: 1.5rem;
+        }
         
+        .imgs {
+            border: 1px solid #DDD;
+            margin: 0 5px;
+        }
+
     </style>
 </head>
 <body>
     
-    <script src="js/jquery-3.7.1.js"></script>
+    <div id="box1">
+        <img src="/images/img01.jpg" alt="img01" id="img01" class="imgs">
+        <img src="/images/img02.jpg" alt="img02" id="img02" class="imgs">
+        <img src="/images/img03.jpg" alt="img03" id="img03" class="imgs">
+    </div>
+    <div id="txt1">
+        <!-- 스키가 당근으로... -->
+    </div>
+    
+    
+
+
+
+    <!-- <script src="js/jquery-3.7.1.js"></script> -->
     <script>
+        window.oncontextmenu = event => event.preventDefault();
+        window.ondragstart   = event => event.preventDefault();
+        window.onselectstart = event => event.preventDefault();
         
+        const imglist = document.querySelectorAll('.imgs')
+        imglist.forEach = () => {
+            
+        }
+
+
+
     </script>
 </body>
 </html>
