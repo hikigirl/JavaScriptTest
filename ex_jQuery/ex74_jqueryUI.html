@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <style>
+        #box1 {
+            border: 1px solid black;
+            width: 200px;
+            height: 200px;
+            background-color: gold;
+        }
+        /* img {
+            outline: 1px solid black;
+        }*/
+        .helper {
+            /* background-color: dodgerblue; */
+            border: 1px dashed #333;
+            background-color: rgba(255, 215, 0, .3);
+        }
+        #list1 {
+            margin-bottom: 300px;
+            padding: 0;
+            display: flex;
+            list-style-type: none;
+            justify-content: center;
+        }
+        #list1 li {
+            width: 100px; height: 100px;
+            border: 1px solid black;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Interactions <small>Resizable</small></h1>
+    <div id="box1"></div>
+    <hr>
+    <img src="/images/placeimg_200_400_animals.jpg" alt="" id="img1">
+
+    <hr>
+    <ul id="list1">
+        <li>강아지</li>
+        <li>고양이</li>
+        <li>닭</li>
+        <li>병아리</li>
+        <li>물개</li>
+    </ul>
+
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script>
+        $('#box1').resizable({
+            maxWidth: 500,
+            maxHeight: 500,
+            minWidth: 100,
+            minHeight: 100,
+            ghost: true
+            // grid: [50, 50],
+            // animate: true,
+            // helper: 'helper'
+        });
+        $('#img1').resizable({
+            aspectRatio: true,
+            ghost: true
+        });
+
+        $('#list1 li').resizable({
+            alsoResize: '#list1 li'
+        });
+    </script>
+</body>
+</html>
