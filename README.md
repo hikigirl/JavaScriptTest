@@ -6,3 +6,5 @@
 1. ex_vanillaJS - 바닐라 자바스크립트 수업 필기
 2. ex_jQuery    - jQuery 수업 필기
 3. ex_questions - 연습문제
+4. js - jQuery.js 파일
+5. css - jQueryUI 관련 css 파일, 이미지파일
