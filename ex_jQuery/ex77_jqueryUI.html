@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/jquery-ui.css">
+    <style>
+        #a1 { width: 700px; }
+    </style>
+</head>
+<body>
+    <h2>Accordion</h2>
+    <div id="a1">
+        <!-- #region -->
+        <h2>HTML</h2>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur eligendi, minima ad vero obcaecati fuga repudiandae pariatur maxime dolore dolorum hic inventore assumenda velit voluptate officia quo consectetur sed earum.rem</div>
+        <h2>CSS</h2>
+        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quas reiciendis impedit atque expedita qui quam corporis laboriosam inventore sint voluptatum, sequi ipsa nihil sunt praesentium esse, blanditiis necessitatibus quos?</div>
+        <h2>JavaScript</h2>
+        <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Earum aspernatur architecto totam ut odit! Alias libero beatae accusamus, in eum voluptatibus repudiandae architecto dolorem, quam recusandae odio maiores ut at.em</div>
+        <!-- #endregion -->
+    </div>
+
+    <h2>각종 버튼들</h2>
+    <input type="button" value="글쓰기" class="btn">
+    <input type="button" value="삭제하기" class="btn">
+    <br><br>
+    <div class="btns">
+        <input type="button" value="글쓰기" class="btn">
+        <input type="button" value="삭제하기" class="btn">
+    </div>
+    <h2>날짜, Date Picker</h2>
+    선택: <input type="date">
+    <br><br>
+    선택: <input type="text" id="date1">
+
+    <h2>대화상자 window.open()</h2>
+    <input type="button" value="확인" class="btn" id="btn1">
+    <div id="dialog1">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deserunt, voluptatem vitae? Voluptatum maxime harum laborum veritatis provident sequi officia, dolore eum dicta est dolorem deserunt velit nemo unde illo tempora?
+    </div>
+
+
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script src="/js/jquery-ui.js"></script>
+    <script>
+        $('#a1').accordion();
+        $('.btn').button();
+        $('.btns').controlgroup();
+        $('#date1').datepicker({
+            dateFormat: 'yy-mm-dd',
+            // minDate: -3,
+            // maxDate: +3
+            // minDate: '-1M',
+            // maxDate: '+1M 5D'
+            minDate: '2025-08-15',
+            maxDate: '2025-09-05'
+        });
+        $('#dialog1').hide();
+        $('#btn1').click(() => {
+            $('#dialog1').dialog({
+                title: '대화상자',
+                width: 300,
+                height: 400,
+                resizable: false,
+                draggable: false,
+                modal: true,
+                buttons: {
+                    // '텍스트': function () {
+                    //     alert();
+                    // }
+                    '확인': function () {
+                        
+                    },
+                    '취소': function () {
+                        $('#dialog1').dialog('close');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
