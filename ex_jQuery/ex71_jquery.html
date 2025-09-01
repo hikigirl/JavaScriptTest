@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <img src="/images/dog01.jpg" alt="" id="dog1">
+
+
+    <script src="/js/jquery-3.7.1.js"></script>
+    <script>
+        // mouseover + mouseout
+        // $('#dog1').mouseover(() => {
+        //    $(event.target).attr('src', '/images/dog02.jpg');
+        // });
+        // $('#dog1').mouseout(() => {
+        //    $(event.target).attr('src', '/images/dog01.jpg');
+        // });
+
+        //메서드 체이닝 가능..
+        // $('#dog1')
+        // .mouseover(() => {
+        //    $(event.target).attr('src', '/images/dog02.jpg');
+        // })
+        // .mouseout(() => {
+        //    $(event.target).attr('src', '/images/dog01.jpg');
+        // });
+
+        //이벤트를 객체로
+        $('#dog1').on({
+            mouseover: () => {
+               $(event.target).attr('src', '/images/dog02.jpg');
+            },
+            mouseout: () => {
+                $(event.target).attr('src', '/images/dog01.jpg');
+            }
+        });
+
+    </script>
+</body>
+</html>
